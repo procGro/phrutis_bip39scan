@@ -4,6 +4,10 @@ Supports all patches, BTC, DOGE, LITE, dash, BTC Cash, addresses and ETH tokens.
 Automatically detects the coin type based on the given patch. You can specify the type manually.<br> 
 RTX speed 4090 = 11,000,000 phrases per sec.<br>
 By default, all CUDA cards work. You can specify the necessary -d 0,1,2,3,5<br>
+You can use your own list of words from a text file for searching.<br>
+Only words from the 2048 mnemonic words are supported.<br>
+Words in the file must be on a new line.<br>
+To add a specified list, use ```-w words.txt```<br>
 The program was extracted from the docker by the miner from whom the installation was rented.<br>
 The source code is missing, prohibit the program from accessing the Internet.<br>
 If you do not know how to do this, simply disconnect the Internet.<br>
@@ -50,4 +54,6 @@ It is better to be on the safe side, use the instructions below or turn off the 
 4. Select the checkbox next to "Block connection".
 5. Click "Next", specify "Name" and click "Done".
 
+
+![Image](https://github.com/user-attachments/assets/ee6c4bac-2fc2-452e-b9ab-b85cdfe64701)
 
