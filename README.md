@@ -8,8 +8,8 @@ You can use your own list of words from a text file for searching.<br>
 Only words from the 2048 mnemonic words are supported.<br>
 Words in the file must be on a new line.<br>
 To add a specified list, use ```-w words.txt```<br>
-
-[Brute force program (win)](https://github.com/phrutis/bip39scan/edit/main/README.md#bip39scanexe---windows-cuda-only) + [program2 for reading mnemonics from a file](https://github.com/phrutis/bip39scan/edit/main/README.md#bip39scan-linux-only (linux)) + [source code bip39scan](https://github.com/phrutis/bip39scan/edit/main/README.md#source-code-of-bip39scan) + [Bonus](https://github.com/phrutis/bip39scan/edit/main/README.md#bonus-only-for-linux-ubuntu) = $500<br><br>
+https://github.com/phrutis/bip39scan#bip39scan-linux-only
+[Brute force program (win)](https://github.com/phrutis/bip39scan#bip39scanexe---windows-cuda-only) + [program2 for reading mnemonics from a file](https://github.com/phrutis/bip39scan#bip39scan-linux-only (linux)) + [source code bip39scan](https://github.com/phrutis/bip39scan#source-code-of-bip39scan) + [Bonus](https://github.com/phrutis/bip39scan#bonus-only-for-linux-ubuntu) = $500<br><br>
 Buy the programs https://t.me/cuda8<br>
 If you have any questions, please write @phrutis
 ## Modes:
