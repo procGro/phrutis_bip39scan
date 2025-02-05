@@ -1,4 +1,4 @@
-# bip39scan.exe - Windows, CUDA only
+# bip39scan - CUDA only
 Multigpu program brute force mnemonic phrases <br>
 Supports all patches, BTC, DOGE, LITE, dash, BTC Cash, addresses and ETH tokens.<br>
 Automatically detects the coin type based on the given patch. You can specify the type manually.<br> 
