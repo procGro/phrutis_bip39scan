@@ -1,4 +1,4 @@
-# Bip39scan - $500
+# Bip39scan - $500 (Windows ONLY)
 Multigpu program brute force mnemonic phrases<br>
 Supports all patches, BTC, DOGE, LITE, dash, BTC Cash, addresses and ETH tokens.<br>
 Automatically detects the coin type based on the given patch. You can specify the type manually.<br> 
@@ -23,27 +23,25 @@ Replace unknown words with *<br>
 ```bip39scan.exe --save Found.txt -a eth0x.txt -p m/44'/60'/0'/0/0-3 -r * * * * * * * * * * * *```<br><br>
 ![random](https://github.com/user-attachments/assets/f9611d71-33fe-4abc-87a8-e52b83102147)
 
-For linux (ubuntu) it is important to put \ before ' in the patch!!!<br>
-Ex. ```./bip39scan --save Found.txt -a eth0x.txt -p m/44\'/60\'/0\'/0/0-3 -r * * * * * * * * * * * *```<br>
 
 If you have address bases of 1-12 GB, it is better to convert them to binary format.<br>
 Launch with a text address base of 10 GB = 10 minutes, with a binary base 3-5 seconds.<br>
 We create binary databases, example below<br>
 
 BTC<br>
-```./bip39scan --save Found.txt -a btc1.txt --save-bin btc1.bin -p m/44\'/0\'/0\'/0-1/0-10```<br>
-```./bip39scan --save Found.txt -a btc3.txt --save-bin btc3.bin -p m/49\'/0\'/0\'/0-1/0-10```<br>
-```./bip39scan --save Found.txt -a btc-bc.txt --save-bin btc-bc.bin-p m/84\'/0\'/0\'/0-1/0-10```<br>
+```bip39scan.exe --save Found.txt -a btc1.txt --save-bin btc1.bin -p m/44'/0'/0'/0/0-5```<br>
+```bip39scan.exe --save Found.txt -a btc3.txt --save-bin btc3.bin -p m/49'/0'/0'/0/0-5```<br>
+```bip39scan.exe --save Found.txt -a btc-bc.txt --save-bin btc-bc.bin-p m/84'/0'/0'/0/0-5```<br>
 
 ETH and tokens<br>
-```./bip39scan --save Found.txt -a eth_addresses.txt --save-bin eth.bin -t ethereum -p m/44\'/60\'/0\'/0-1/0-5  -r * * * * * *```
+```bip39scan.exe --save Found.txt -a eth_addresses.txt --save-bin eth.bin -t ethereum -p m/44'/60'/0'/0/0-5  -r * * * * * *```
 
 Quick start with binary base:<br>
-```./bip39scan --save Found.txt -a btc1.bin -t P2PKH -p m/0-1/0-10 -r * * * * * *```<br>
-```./bip39scan --save Found.txt -a btc1.bin -t P2PKH -p m/44\'/0\'/0\'/0-1/0-9  -r * * * * * *```<br>
-```./bip39scan --save Found.txt -a btc3.bin -t P2SH -p m/49\'/0\'/0\'/0-1/0-9  -r * * * * * *```<br>
-```./bip39scan --save Found.txt -a btc-bc.bin -t Bech32 -p m/84\'/0\'/0\'/0-1/0-9  -r * * * * * *```<br>
-```./bip39scan --save FoundETH.txt -a eth.bin -t ethereum -p m/44\'/60\'/0\'/0/0-9  -r * * * * * *```<br>
+```bip39scan.exe --save Found.txt -a btc1.bin -t P2PKH -p m/0/0-10 -r * * * * * *```<br>
+```bip39scan.exe --save Found.txt -a btc1.bin -t P2PKH -p m/44'/0'/0'/0/0-9  -r * * * * * *```<br>
+```bip39scan.exe --save Found.txt -a btc3.bin -t P2SH -p m/49'/0'/0'/0-1/0-9  -r * * * * * *```<br>
+```bip39scan.exe --save Found.txt -a btc-bc.bin -t Bech32 -p m/84'/0'/0'/0-1/0-9  -r * * * * * *```<br>
+```bip39scan.exe --save FoundETH.txt -a eth.bin -t ethereum -p m/44'/60'/0'/0/0-9  -r * * * * * *```<br>
 
 
 It is better to be on the safe side, use the instructions below or turn off the Internet during the search.
