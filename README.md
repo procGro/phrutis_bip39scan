@@ -11,6 +11,11 @@ To add a specified list, use ```-w words.txt```<br>
 [Brute force program (win)](https://github.com/phrutis/bip39scan#bip39scanexe---windows-cuda-only) + [program2 for reading mnemonics from a file (linux)](https://github.com/phrutis/bip39scan#bip39scan-linux-only) + [source code bip39scan](https://github.com/phrutis/bip39scan#source-code-of-bip39scan) + [Bonus](https://github.com/phrutis/bip39scan#bonus-only-for-linux-ubuntu) = $500<br><br>
 Buy the programs https://t.me/cuda8<br>
 If you have any questions, please write @phrutis
+
+<b>The Kit includes a brute force program for Linux.</b><br>
+<b>It didn't launch for me. You need to specify the launch arguments correctly.</b><br>
+
+
 ## Modes:
 ### Sequential search<br>
 Replace unknown words with *<br>
