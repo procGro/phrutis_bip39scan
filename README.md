@@ -2,22 +2,21 @@
 Multigpu program brute force mnemonic phrases <br>
 Supports all patches, BTC, DOGE, LITE, dash, BTC Cash, addresses and ETH tokens.<br>
 Automatically detects the coin type based on the given patch. You can specify the type manually.<br> 
-RTX speed 4090 = 11,000,000 phrases per sec.<br>
+RTX speed 4090 = 160,000,000 phrases per sec (24 words)<br>
+RTX speed 4090 = 11,000,000 phrases per sec. (12 words)<br>
 By default, all CUDA cards work. You can specify the necessary -d 0,1,2,3,5<br>
 You can use your own list of words from a text file for searching.<br>
 Only words from the 2048 mnemonic words are supported.<br>
 Words in the file must be on a new line.<br>
 To add a specified list, use ```-w words.txt```<br>
-[Brute force program (win)](https://github.com/phrutis/bip39scan#bip39scanexe---windows-cuda-only) + [program2 for reading mnemonics from a file (linux)](https://github.com/phrutis/bip39scan#bip39scan-linux-only) + [source code bip39scan](https://github.com/phrutis/bip39scan#source-code-of-bip39scan) + [Bonus](https://github.com/phrutis/bip39scan#bonus-only-for-linux-ubuntu) = $500<br><br>
+[Brute force program (win + linux)](https://github.com/phrutis/bip39scan#bip39scanexe---windows-cuda-only) + [program for reading mnemonics from a file (only linux)](https://github.com/phrutis/bip39scan#bip39scan-linux-only) +<br>[source code bip39scan client](https://github.com/phrutis/bip39scan#source-code-of-bip39scan) + [Bonus](https://github.com/phrutis/bip39scan#bonus-only-for-linux) = $500<br><br>
 Buy the programs https://t.me/cuda8<br>
 If you have any questions, please write @phrutis
 
-<b>The Kit includes a brute force program for Linux.</b><br>
-<b>It didn't launch for me. You need to specify the launch arguments correctly.</b><br>
 
 
 ## Modes:
-### Sequential search<br>
+### Sequential search Windows<br>
 Replace unknown words with *<br>
 ```bip39scan.exe --save Found.txt -a eth0x.txt -p m/44'/60'/0'/0/0-3 cement income * bounce suspect * * jungle cheese ranch neutral *```<br><br>
 ![1](https://github.com/user-attachments/assets/a448a078-7340-4b86-af06-766db9897238)
@@ -59,9 +58,36 @@ It is better to be on the safe side, use the instructions below or turn off the 
 precomp.bin - this is the acceleration table<br>
 
 ![Image](https://github.com/user-attachments/assets/ee6c4bac-2fc2-452e-b9ab-b85cdfe64701)
+
+### Sequential search linux
+Works on RTX 3070, other cards may have problems.<br>
+Try installing nvidia/cuda:12.1.0-devel-ubuntu20.04<br>
+```--dict words.txt``` - Specify the desired mnemonic list of words on a new line.<br>
+
+```chmod +x bip39scan```<br>
+
+```./bip39scan --dict 'words.txt' -a btc1.txt -p m/44\'/0\'/0\'/0/0-5 --save Found.txt \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt*```<br>
+
+If you know part of the phrase, please indicate it like this<br>
+```./bip39scan --dict 'words.txt' -a btc1.txt -p m/44\'/0\'/0\'/0/0-5 --save Found.txt chat summer \*words.txt* gap injury \*words.txt* snap note \*words.txt* \*words.txt* \*words.txt*```<br>
+![bip39](https://github.com/user-attachments/assets/9e0437f6-82ac-474b-afd1-5dd7b744b6c6)<br>
+
+### Random search linux
+
+```./bip39scan --dict 'words.txt' -a btc1.txt -p m/44\'/0\'/0\'/0/0-5 --save Found.txt \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* \*words.txt* -r```
+
+If you know part of the phrase, please indicate it like this<br>
+
+```./bip39scan --dict 'words.txt' -a btc1.txt -p m/44\'/0\'/0\'/0/0-5 --save Found.txt chat summer denial gap injury equip snap note \*words.txt* \*words.txt* \*words.txt* \*words.txt* -r```<br>
+![Image](https://github.com/user-attachments/assets/f11bd02a-cace-43cf-b992-f94d0ae6bbe1)
+
+
+### Speed ​​example RTX 3070 Ti (24 words) - 43 million phrases per second<br>
+![Image](https://github.com/user-attachments/assets/212ae251-7cf6-4e20-a057-c5fc6c22ac3c)
+
 <hr>
 
-# bip39scan (Linux ONLY)
+# bip39scan2 (Linux ONLY)
 The program reads mnemonic phrases from a text file on the GPU (Only CUDA )<br>
 The program also reads all: PASSWORDS, numbers, words from a file. There are many finds on them.<br>
 Supports all patches, addresses from different coins and tokens.<br>
@@ -73,50 +99,50 @@ Buy the programs https://t.me/cuda8
 
 <b>Launch examples:</b>
 <br>
-```chmod +x bip39scan```<br><br>
+```chmod +x bip39scan2```<br><br>
 <b>BTC:</b><br>
-```./bip39scan -m seeds.txt --save Found.txt -a btc1.txt -p m/0-1/0-20```<br>
-```./bip39scan -m seeds.txt --save Found.txt -a btc1.txt -p m/44\'/0\'/0\'/0-1/0-10```<br>
-```./bip39scan -m seeds.txt --save Found.txt -a btc3.txt -p m/49\'/0\'/0\'/0-1/0-10```<br>
-```./bip39scan -m seeds.txt --save Found.txt -a btc-bc.txt -p m/84\'/0\'/0\'/0-1/0-10```<br><br>
+```./bip39scan2 -m seeds.txt --save Found.txt -a btc1.txt -p m/0-1/0-20```<br>
+```./bip39scan2 -m seeds.txt --save Found.txt -a btc1.txt -p m/44\'/0\'/0\'/0-1/0-10```<br>
+```./bip39scan2 -m seeds.txt --save Found.txt -a btc3.txt -p m/49\'/0\'/0\'/0-1/0-10```<br>
+```./bip39scan2 -m seeds.txt --save Found.txt -a btc-bc.txt -p m/84\'/0\'/0\'/0-1/0-10```<br><br>
 <b>ETH:</b><br>
 ```./bip39scan -m seeds.txt --save Found.txt -a eth_addresses.txt -p m/44\'/60\'/0\'/0-1/0-20```<br><br>
 <b>Others coins:</b><br>
-```./bip39scan -m seeds.txt --save FoundB-cash.txt -a btc-cash.txt -p m/44\'/145\'/0\'/0-1/0-20```<br>
-```./bip39scan -m seeds.txt --save FoundB-cash.txt -a btc-cash.txt -p m/44\'/0\'/0\'/0-1/0-20```<br>
-```./bip39scan -m seeds.txt --save FoundDash.txt -a dash.txt -p m/44\'/5\'/0\'/0-1/0-20```<br>
-```./bip39scan -m seeds.txt --save FoundDoge.txt -a doge.txt -p m/44\'/3\'/0\'/0-1/0-20```<br>
-```./bip39scan -m seeds.txt --save FoundLITE.txt -a lite-L.txt -p m/44\'/2\'/0\'/0-1/0-20```<br>
-```./bip39scan -m seeds.txt --save FoundLITE.txt -a lite-M.txt -p m/49\'/2\'/0\'/0-1/0-20```<br>
-```./bip39scan -m seeds.txt --save FoundLITE.txt -a lie-ltc1.txt -p m/84\'/2\'/0\'/0-1/0-20```<br><br>
+```./bip39scan2 -m seeds.txt --save FoundB-cash.txt -a btc-cash.txt -p m/44\'/145\'/0\'/0-1/0-20```<br>
+```./bip39scan2 -m seeds.txt --save FoundB-cash.txt -a btc-cash.txt -p m/44\'/0\'/0\'/0-1/0-20```<br>
+```./bip39scan2 -m seeds.txt --save FoundDash.txt -a dash.txt -p m/44\'/5\'/0\'/0-1/0-20```<br>
+```./bip39scan2 -m seeds.txt --save FoundDoge.txt -a doge.txt -p m/44\'/3\'/0\'/0-1/0-20```<br>
+```./bip39scan2 -m seeds.txt --save FoundLITE.txt -a lite-L.txt -p m/44\'/2\'/0\'/0-1/0-20```<br>
+```./bip39scan2 -m seeds.txt --save FoundLITE.txt -a lite-M.txt -p m/49\'/2\'/0\'/0-1/0-20```<br>
+```./bip39scan2 -m seeds.txt --save FoundLITE.txt -a lie-ltc1.txt -p m/84\'/2\'/0\'/0-1/0-20```<br><br>
 <b>ETH Tokens:</b>  ARB, AVAX, BASE, BNB, CRO, ETC, ETH, FTM, GETH, GNO, MATIC, OP, opBNB, zkEVM<br>
-```./bip39scan -m seeds.txt --save TFoundETH.txt -a BAZA/t6.bin -t ethereum -p m/44\'/60\'/160720\'/0-1/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETH.txt -a BAZA/t6.bin -t ethereum -p m/44\'/137\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHNIM-Nimiq.txt -a BAZA/t6.bin -t ethereum -p m/44\'/242\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHAION.txt -a BAZA/t6.bin -t ethereum -p m/44\'/425\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHTHETA.txt -a BAZA/t6.bin -t ethereum -p m/44\'/500\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHSmartCL.txt -a BAZA/t6.bin -t ethereum -p m/44\'/714\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHVET.txt -a BAZA/t6.bin -t ethereum -p m/44\'/818\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHCLO.txt -a BAZA/t6.bin -t ethereum -p m/44\'/820\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHTOMO.txt -a BAZA/t6.bin -t ethereum -p m/44\'/889\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHTT.txt -a BAZA/t6.bin -t ethereum -p m/44\'/1001\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHWAN.txt -a BAZA/t6.bin -t ethereum -p m/44\'/5718350\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHPOA.txt -a BAZA/t6.bin -t ethereum -p m/44\'/178\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHGO.txt -a BAZA/t6.bin -t ethereum -p m/44\'/6060\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHCELO.txt -a BAZA/t6.bin -t ethereum -p m/44\'/52752\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHPOLYGON.txt -a BAZA/t6.bin -t ethereum -p m/44\'/966\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHHARMONY.txt -a BAZA/t6.bin -t ethereum -p m/44\'/1023\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHKLAY.txt -a BAZA/t6.bin -t ethereum -p m/44\'/8217\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHTRON.txt -a BAZA/t6.bin -t ethereum -p m/44\'/195\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHEGLD.txt -a BAZA/t6.bin -t ethereum -p m/44\'/508\'/0\'/0\'/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHADA.txt -a BAZA/t6.bin -t ethereum -p m/1852\'/1815\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHFLOW.txt -a BAZA/t6.bin -t ethereum -p m/44\'/539\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHNEO.txt -a BAZA/t6.bin -t ethereum -p m/44\'/888\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHSOL.txt -a BAZA/t6.bin -t ethereum -p m/44\'/501'/0\'/0\'/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHXDC.txt -a BAZA/t6.bin -t ethereum -p m/44\'/550\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHXLM.txt -a BAZA/t6.bin -t ethereum -p m/44\'/148\'/0\'/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHXRP.txt -a BAZA/t6.bin -t ethereum -p m/44\'/144\'/0\'/0/0-20```<br>
-```./bip39scan -m seeds.txt --save TFoundETHBNB.txt -a BAZA/t6.bin -t ethereum -p m/44\'/714\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETH.txt -a BAZA/t6.bin -t ethereum -p m/44\'/60\'/160720\'/0-1/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETH.txt -a BAZA/t6.bin -t ethereum -p m/44\'/137\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHNIM-Nimiq.txt -a BAZA/t6.bin -t ethereum -p m/44\'/242\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHAION.txt -a BAZA/t6.bin -t ethereum -p m/44\'/425\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHTHETA.txt -a BAZA/t6.bin -t ethereum -p m/44\'/500\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHSmartCL.txt -a BAZA/t6.bin -t ethereum -p m/44\'/714\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHVET.txt -a BAZA/t6.bin -t ethereum -p m/44\'/818\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHCLO.txt -a BAZA/t6.bin -t ethereum -p m/44\'/820\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHTOMO.txt -a BAZA/t6.bin -t ethereum -p m/44\'/889\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHTT.txt -a BAZA/t6.bin -t ethereum -p m/44\'/1001\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHWAN.txt -a BAZA/t6.bin -t ethereum -p m/44\'/5718350\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHPOA.txt -a BAZA/t6.bin -t ethereum -p m/44\'/178\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHGO.txt -a BAZA/t6.bin -t ethereum -p m/44\'/6060\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHCELO.txt -a BAZA/t6.bin -t ethereum -p m/44\'/52752\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHPOLYGON.txt -a BAZA/t6.bin -t ethereum -p m/44\'/966\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHHARMONY.txt -a BAZA/t6.bin -t ethereum -p m/44\'/1023\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHKLAY.txt -a BAZA/t6.bin -t ethereum -p m/44\'/8217\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHTRON.txt -a BAZA/t6.bin -t ethereum -p m/44\'/195\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHEGLD.txt -a BAZA/t6.bin -t ethereum -p m/44\'/508\'/0\'/0\'/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHADA.txt -a BAZA/t6.bin -t ethereum -p m/1852\'/1815\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHFLOW.txt -a BAZA/t6.bin -t ethereum -p m/44\'/539\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHNEO.txt -a BAZA/t6.bin -t ethereum -p m/44\'/888\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHSOL.txt -a BAZA/t6.bin -t ethereum -p m/44\'/501'/0\'/0\'/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHXDC.txt -a BAZA/t6.bin -t ethereum -p m/44\'/550\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHXLM.txt -a BAZA/t6.bin -t ethereum -p m/44\'/148\'/0\'/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHXRP.txt -a BAZA/t6.bin -t ethereum -p m/44\'/144\'/0\'/0/0-20```<br>
+```./bip39scan2 -m seeds.txt --save TFoundETHBNB.txt -a BAZA/t6.bin -t ethereum -p m/44\'/714\'/0\'/0/0-20```<br>
 
 <b>It is important to put \ before ' in the patch!!!</b><br>
 If you have address bases of 1-12 GB, it is better to convert them to binary format.<br>
@@ -124,18 +150,18 @@ Launch with a text address base of 10 GB = 10 minutes, with a binary base 3-5 se
 We create binary databases, example below<br>
 
 BTC<br>
-```./bip39scan -m seeds.txt --save Found.txt -a btc1.txt --save-bin btc1.bin -p m/44\'/0\'/0\'/0-1/0-10```<br>
-```./bip39scan -m seeds.txt --save Found.txt -a btc3.txt --save-bin btc3.bin -p m/49\'/0\'/0\'/0-1/0-10```<br>
-```./bip39scan -m seeds.txt --save Found.txt -a btc-bc.txt --save-bin btc-bc.bin-p m/84\'/0\'/0\'/0-1/0-10```<br><br>
+```./bip39scan2 -m seeds.txt --save Found.txt -a btc1.txt --save-bin btc1.bin -p m/44\'/0\'/0\'/0-1/0-10```<br>
+```./bip39scan2 -m seeds.txt --save Found.txt -a btc3.txt --save-bin btc3.bin -p m/49\'/0\'/0\'/0-1/0-10```<br>
+```./bip39scan2 -m seeds.txt --save Found.txt -a btc-bc.txt --save-bin btc-bc.bin-p m/84\'/0\'/0\'/0-1/0-10```<br><br>
 ETH and tokens<br>
 ```./bip39scan -m seeds.txt --save Found.txt -a eth_addresses.txt --save-bin eth.bin -t ethereum -p m/44\'/60\'/0\'/0-1/0-20```<br><br>
 
 Quick start with binary base:<br>
-```./bip39scan -m seeds.txt --save Found.txt -a btc1.bin -t P2PKH -p m/0-1/0-20```<br>
-```./bip39scan -m seeds.txt --save Found.txt -a BAZA/btc1.bin -t P2PKH -p m/44\'/0\'/0\'/0-1/0-10<br>```<br>
-```./bip39scan -m seeds.txt --save Found.txt -a BAZA/btc3.bin -t P2SH -p m/49\'/0\'/0\'/0-1/0-10```<br>
-```./bip39scan -m seeds.txt --save Found.txt -a BAZA/btc-bc.bin -t Bech32 -p m/84\'/0\'/0\'/0-1/0-10```<br>
-```./bip39scan -m seeds.txt --save FoundETH.txt -a eth.bin -t ethereum -p m/44\'/60\'/0\'/0-20```<br>
+```./bip39scan2 -m seeds.txt --save Found.txt -a btc1.bin -t P2PKH -p m/0-1/0-20```<br>
+```./bip39scan2 -m seeds.txt --save Found.txt -a BAZA/btc1.bin -t P2PKH -p m/44\'/0\'/0\'/0-1/0-10<br>```<br>
+```./bip39scan2 -m seeds.txt --save Found.txt -a BAZA/btc3.bin -t P2SH -p m/49\'/0\'/0\'/0-1/0-10```<br>
+```./bip39scan2 -m seeds.txt --save Found.txt -a BAZA/btc-bc.bin -t Bech32 -p m/84\'/0\'/0\'/0-1/0-10```<br>
+```./bip39scan2 -m seeds.txt --save FoundETH.txt -a eth.bin -t ethereum -p m/44\'/60\'/0\'/0-20```<br>
 
 
 The program works very fast, it takes a lot of time to launch each command.<br>
