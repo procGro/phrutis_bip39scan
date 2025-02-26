@@ -9,7 +9,7 @@ You can use your own list of words from a text file for searching.<br>
 Only words from the 2048 mnemonic words are supported.<br>
 Words in the file must be on a new line.<br>
 To add a specified list, use ```-w words.txt```<br>
-[Brute force program (win + linux)](https://github.com/phrutis/bip39scan#bip39scanexe---windows-cuda-only) + [program for reading mnemonics from a file (only linux)](https://github.com/phrutis/bip39scan#bip39scan-linux-only) +<br>[source code bip39scan client](https://github.com/phrutis/bip39scan#source-code-of-bip39scan) + [Bonus](https://github.com/phrutis/bip39scan#bonus-only-for-linux) = $500<br><br>
+[Brute force program (win + linux)](https://github.com/phrutis/bip39scan#bip39scanexe---windows-cuda-only) + [program for reading mnemonics from a file (win + linux)](https://github.com/phrutis/bip39scan#bip39scan-linux-only) +<br>[source code bip39scan client](https://github.com/phrutis/bip39scan#source-code-of-bip39scan) + [Bonus](https://github.com/phrutis/bip39scan#bonus-only-for-linux) = $500<br><br>
 Buy the programs https://t.me/cuda8<br>
 If you have any questions, please write @phrutis
 
@@ -87,7 +87,7 @@ If you know part of the phrase, please indicate it like this<br>
 
 <hr>
 
-# bip39scan2 (Linux ONLY)
+# bip39scan2 linux (ubuntu)
 The program reads mnemonic phrases from a text file on the GPU (Only CUDA )<br>
 The program also reads all: PASSWORDS, numbers, words from a file. There are many finds on them.<br>
 Supports all patches, addresses from different coins and tokens.<br>
@@ -171,9 +171,19 @@ Place the file next to the program.<br>
 ```chmod +x START.sh```<br>
 See the example in the file START.sh<br>
 ```./START.sh```
+
+### bip39scan2.exe Windows
+```bip39scan2.exe -m seeds.txt --save Found.txt -a btc1.txt -p m/0-1/0-20```<br>
+Launch arguments as for Linux above. Launch arguments as for Linux above. Get help ```bip39scan2.exe -h```<br>
+Works on RTX 20xx, 30xx series cards.<br>
+On RTX 4090, 5090 cards it does not work for everyone!
 <hr>
 
 # BONUS only for Linux (ubuntu)
+Attack on vulnerable random number generator (RNG)
+Program only for win bip39scan-rng.exe
+Ex. ```bip39scan-rng.exe --rng --save Found.txt -p m/44'/0'/0'/0/0-9 -a btc1.txt```
+
 Vulnerablity in libbitcoin explorer library - generator phrases and entropy<br>
 The developers have removed the utility everywhere, it is impossible to compile from the source code.<br>
 It is very difficult to find a vulnerable version 3.2.<br>
