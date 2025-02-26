@@ -13,7 +13,8 @@ To add a specified list, use ```-w words.txt```<br>
 Buy the programs https://t.me/cuda8<br>
 If you have any questions, please write @phrutis
 
-
+For the test, you can generate a phrase on the website https://iancoleman.io/bip39/<br>
+Add the address to the address database. Using the same patch you will find
 
 ## Modes:
 ### Sequential search Windows<br>
