@@ -96,7 +96,7 @@ Automatically detects the coin type based on the given patch. You can specify th
 Multi GPU program. RTX speed 4090 = 500k phrases per sec.<br>
 By default, all CUDA cards work. You can specify the necessary -d 0,1,2,3,5<br>
 Supports phrase dictionaries up to 32 TB.<br>
-Buy the programs https://t.me/cuda8
+Buy the programs https://t.me/cuda8/248
 
 <b>Launch examples:</b>
 <br>
