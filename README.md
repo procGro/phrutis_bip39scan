@@ -62,6 +62,14 @@ precomp.bin - this is the acceleration table<br>
 
 ### Sequential search linux
 Works on RTX 3070, other cards may have problems.<br>
+```
+./bip39scan: error while loading shared libraries: libcudart.so.11.0:
+cannot open shared object file: No such file or directory
+```
+For Ubuntu<br>
+```sudo apt-get install libcudart.so.11.0```<br>
+or install CUDA 11.7 [HIRE](https://developer.nvidia.com/cuda-11-7-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=deb_local)
+
 Try installing nvidia/cuda:12.1.0-devel-ubuntu20.04<br>
 ```--dict words.txt``` - Specify the desired mnemonic list of words on a new line.<br>
 
