@@ -18,11 +18,14 @@ Add the address to the address database. Using the same patch you will find
 
 ## Modes:
 ### Sequential search Windows<br>
+![Image](https://github.com/user-attachments/assets/0a4e85ae-166f-41ae-b406-16c736e38d17)
+
 Replace unknown words with *<br>
 ```bip39scan.exe --save Found.txt -a eth0x.txt -p m/44'/60'/0'/0/0-3 cement income * bounce suspect * * jungle cheese ranch neutral *```<br><br>
 ![1](https://github.com/user-attachments/assets/a448a078-7340-4b86-af06-766db9897238)
 
 ### Random mode:<br>
+![Image](https://github.com/user-attachments/assets/b6ca2025-8be1-48a9-91ca-613372143d2e)
 Replace unknown words with *<br>
 ```bip39scan.exe --save Found.txt -a eth0x.txt -p m/44'/60'/0'/0/0-3 -r * * * * * * * * * * * *```<br><br>
 ![random](https://github.com/user-attachments/assets/f9611d71-33fe-4abc-87a8-e52b83102147)
@@ -96,7 +99,8 @@ If you know part of the phrase, please indicate it like this<br>
 
 <hr>
 
-# bip39scan2 linux (ubuntu)
+# bip39scan2 (ubuntu + windows)
+![Image](https://github.com/user-attachments/assets/6d9ccb68-80ac-447b-bffa-006454b4de00)<br>
 The program reads mnemonic phrases from a text file on the GPU (Only CUDA )<br>
 The program also reads all: PASSWORDS, numbers, words from a file. There are many finds on them.<br>
 Supports all patches, addresses from different coins and tokens.<br>
