@@ -242,8 +242,7 @@ It is also possible to generate vulnerable private keys from BTC, ETH and other 
 
 
 Source code of the program bip39scan<br>
-For compilation you need knowledge of C++, CUDA!<br>
-It is necessary to remove the client-server link and other.<br>
+For compilation you need knowledge linux of C++, CUDA, cmake, make<br>
 How to build:<br>
 
 ## Building on Ubuntu:
