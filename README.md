@@ -9,7 +9,11 @@ You can use your own list of words from a text file for searching.<br>
 Only words from the 2048 mnemonic words are supported.<br>
 Words in the file must be on a new line.<br>
 To add a specified list, use ```-w words.txt```<br>
-[Brute force program (win + linux)](https://github.com/phrutis/bip39scan#bip39scanexe---windows-cuda-only) + [program for reading mnemonics from a file (win + linux + sources)](https://github.com/phrutis/bip39scan#bip39scan-linux-only) +<br>[source code bip39scan client](https://github.com/phrutis/bip39scan#source-code-of-bip39scan) + [Bonus](https://github.com/phrutis/bip39scan#bonus-only-for-linux) = $500<br><br>
+
+[Brute force program (win + linux)](https://github.com/phrutis/bip39scan#bip39scanexe---windows-cuda-only) +<br>
+[program for reading mnemonics from a file (win + linux + sources)](https://github.com/phrutis/bip39scan#bip39scan-linux-only) +<br>
+[source code bip39scan](https://github.com/phrutis/bip39scan#source-code-of-bip39scan) +<br> 
+[Bonus](https://github.com/phrutis/bip39scan#bonus-only-for-linux) = $500<br><br>
 Buy the programs https://t.me/cuda8<br>
 If you have any questions, please write @phrutis
 
@@ -193,9 +197,9 @@ On RTX 4090, 5090 cards it does not work for everyone!
 <hr>
 
 # BONUS only for Linux (ubuntu)
-Attack on vulnerable random number generator (RNG)
-Program only for win bip39scan-rng.exe
-Ex. ```bip39scan-rng.exe --rng --save Found.txt -p m/44'/0'/0'/0/0-9 -a btc1.txt```
+Attack on vulnerable random number generator (RNG)<br>
+Program only for Windows<br> 
+```bip39scan-rng.exe --rng --save Found.txt -p m/44'/0'/0'/0/0-9 -a btc1.txt```
 
 Vulnerablity in libbitcoin explorer library - generator phrases and entropy<br>
 The developers have removed the utility everywhere, it is impossible to compile from the source code.<br>
