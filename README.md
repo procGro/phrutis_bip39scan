@@ -197,6 +197,41 @@ Works on RTX 20xx, 30xx series cards.<br>
 On RTX 4090, 5090 cards it does not work for everyone!
 <hr>
 
+## Download ready-made address databases for bip39scan
+
+ALL ETH 1145590543 addresses with balance 20/05/2025 + empty + ALL ETH TOKENS with balance + empty history:<br>
+ARBITRUM, AVALANCHE, BASE, BNB, BSC, BTT, CRONOS, CELO, ETC, Ethereumnie, ERA, ERC20, ETH, Ethered, FANTOM, <br>
+GETH (Goerli), GNOSIS, IOTX, LINEA, MOONBEAM, MOONRIVER, OPBNB, OPTIMISM, POLYGON, VET, ZKEVM-POLYGON...<br>
+Add these arguments to run ```--bloom 4096M -t ethereum```<br>
+(The database fits on a 12 GB card or more)<br>
+Download http://89.23.98.83/up/alleth.bin  22.5 GB
+
+ALL BTC addresses 1... P2PKH with balance + empty (history)<br>
+Add these arguments to run ```--bloom 2048M -t P2PKH```<br>
+Download http://89.23.98.83/up/allbtc1.bin  11.9 GB
+
+ALL BTC addresses 3... P2SH with balance + empty (history)<br>
+Add these arguments to run ```--bloom 2048M -t P2SH```<br>
+Download http://89.23.98.83/up/allbtc3.bin  7.6 GB
+
+ALL BTC addresses bc1q... bech32 with balance + empty (history)<br>
+Add these arguments to run ```--bloom 2048M -t bech32```<br>
+Download http://89.23.98.83/up/allbc.bin  6.5 GB
+
+Addresses only with positive balance
+
+Download ETH addresses 0x ```-t ethereum``` 20/05/2025<br>
+http://89.23.98.83/up/eth.bin  3.1 GB
+
+Download BTC addresses 1... 30/06/2025
+http://89.23.98.83/up/btc1.txt  787 MB<br>
+
+Download BTC addresses 3... 30/06/2025
+http://89.23.98.83/up/btc3.txt 240 MB<br>
+
+Download BTC addresses bc... 30/06/2025
+http://89.23.98.83/up/bc.txt 842 MB<br>
+
 # BONUS only for Linux (ubuntu)
 Attack on vulnerable random number generator (RNG)<br>
 Program only for Windows<br> 
