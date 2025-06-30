@@ -13,7 +13,7 @@ To add a specified list, use ```-w words.txt```<br>
 [Brute force program (win + linux)](https://github.com/phrutis/bip39scan#bip39scanexe---windows-cuda-only) +<br>
 [program for reading mnemonics from a file (win + linux + sources)](https://github.com/phrutis/bip39scan#bip39scan-linux-only) +<br>
 [source code bip39scan](https://github.com/phrutis/bip39scan#source-code-of-bip39scan) +<br> 
-[Bonus](https://github.com/phrutis/bip39scan#bonus-only-for-linux) = $500<br><br>
+[Bonus](https://github.com/phrutis/bip39scan#bonus-only-for-linux) = ~~$500~~ -> $250<br><br>
 Buy the programs https://t.me/cuda8<br>
 If you have any questions, please write @phrutis
 
