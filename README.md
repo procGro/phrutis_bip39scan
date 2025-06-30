@@ -1,4 +1,5 @@
 # bip39scan - CUDA only
+**When you purchase [bip39scan v2.1.7](https://github.com/phrutis/bip39scan2), this version comes FREE in the BONUS folder!!!**<br><br>
 Multigpu program brute force mnemonic phrases <br>
 Supports all patches, BTC, DOGE, LITE, dash, BTC Cash, addresses and ETH tokens.<br>
 Automatically detects the coin type based on the given patch. You can specify the type manually.<br> 
