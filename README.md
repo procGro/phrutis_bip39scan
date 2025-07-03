@@ -220,17 +220,17 @@ Download http://89.23.98.83/up/allbc.bin  6.5 GB
 
 Addresses only with positive balance
 
-Download ETH addresses 0x ```-t ethereum``` 20/05/2025<br>
+Download ETH addresses ```-t ethereum``` 20/05/2025<br>
 http://89.23.98.83/up/eth.bin  3.1 GB
 
-Download BTC addresses 1... 30/06/2025
-http://89.23.98.83/up/btc1.txt  787 MB<br>
+Download BTC addresses 1... 30/06/2025<br>
+http://89.23.98.83/up/btc1.txt  787 MB
 
-Download BTC addresses 3... 30/06/2025
-http://89.23.98.83/up/btc3.txt 240 MB<br>
+Download BTC addresses 3... 30/06/2025<br>
+http://89.23.98.83/up/btc3.txt 240 MB
 
-Download BTC addresses bc... 30/06/2025
-http://89.23.98.83/up/bc.txt 842 MB<br>
+Download BTC addresses bc... 30/06/2025<br>
+http://89.23.98.83/up/bc.txt 842 MB
 
 # BONUS only for Linux (ubuntu)
 Attack on vulnerable random number generator (RNG)<br>
