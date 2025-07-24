@@ -159,6 +159,8 @@ There are many vulnerable random generators on the Internet (github).<br>
 Print the entropy in hex format, done.<br>
 The program will determine the length of the hex and create a phrase of the required length itself.
 
+https://github.com/user-attachments/assets/df8a0774-307a-46e0-ac01-b9123aad5c50
+
 ```
 py 128bit.py | bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 -e stdin
 ```
