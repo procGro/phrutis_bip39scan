@@ -407,6 +407,57 @@ m/0-99'/0-99'/0'/0-5/0-999<br>
 max value: **2147483647**<br>
 m/44'/0-2147483647'/0-2147483647'/0-2147483647/0-2147483647<hr>
 
+## bip39scan.exe -h
+```
+C:\Users\User\Downloads\bip39scan-win64>bip39scan -h
+bip39scan v 4.0.1 (phrutis modification 22/07/2025)
+Bruteforce bip39 mnemonics
+Syntax: bip39scan [OPTIONS] [MNEMO]
+OPTIONS:
+    -h, --help            Print this message.
+    -a, --addresses STR   The name of the address list, each address of a separate line, or a binary
+                          file previosly created with --save-bin. Binary files are faster to read.
+        --save-bin STR    The name of the binary file to write, 20 bytes per address. This is in order
+                          to accelerate loading of addresses.
+    -p, --path STR        Use this derivation path template, e.g. m/44'/60'/0-99'/0/0-99
+                          The default is m/44'/0'/0-9'/0-1/0-9 for p2pkh addresses and ethereum,
+                          m/49'/0'/0-9'/0-1/0-9 for p2sh addresses,
+                          m/84'/0'/0-9'/0-1/0-9 for bech32 addresses.
+    -v, --verbose         Print debug messages.
+    -t, --type STR        Address type, one of P2SH, P2PKH_UNCOMPRESSED, P2PKH, bech32, ethereum
+                          By default, address type is detected from the address file, if it's text.
+                          This options is required when using binary data.
+    -S, --save FILE       Save found results to the file.
+    -m, --mnemo FILE      Read mnemonics from the file, one per line. -m stdin to read from the input pipe.
+        --alphabet FILE   Generate mnemonics as passwords from the characters of the given file.
+                          Not compatible with --mnemo option.
+        --bits INT        Generate mnemonics using RNG of the libbitcoin explorer 3.2.0. The integer number is the entropy length:
+                          64 - 6 words, 96 - 9 words, 128 - 12 words, 160 - 15 words, 192 - 18 words, 224 - 21 words
+                          256 - 24 words.
+    -e, --entropy FILE    Read entropy from the file in hex, one per line. If FILE is 'stdin', read from input pipe.
+    -l, --lang STR        Language of the mnemonics generated with --bits, one of en, es, es-nfkd, ja, ja-nfkd, it, fr, cs, ru, uk, zh_Hans, zh_Hant, po, ko, tu.
+                          Default is English.
+        --start STR       For generated mnemonics, start from this mnemonic.
+    -d, --devices STR     Comma-separated list of device indexes (indeces start with 0). By default,
+                          run on all devices.
+        --bloom NUM       Bloom filter size in GPU, in bytes. Can use K, M, and G suffixes. Default
+                          is 1024M.
+        --kernel NUL      GPU memory reserved for kernel execution, in bytes. Can use K, M, and G suffixes.
+                          Default depends on the device.
+        --ec-threads NUM  Number of threads for elliptic curve computations. Default is 128. Should be a multiplier of 32.
+                          Set to 64 if you are experiencing out of memory errors.
+    -w, --words FILE      Use custom dictionary for '*' placeholders in the mnemo template; each word in a separate text line.
+                          Each word should be a valid BIP39 word in the specified language (--lang).
+        --dump            Dumps valid mnemonics.
+    -r, --random          Randomize the mnemonics generated with MNEMO templates (see below).
+    MNEMO                 Mnemonic template, up to 24 words. Can contain placeholders '*'. If less than
+                          12 words, the rest are placeholders. Each '*' is replaced with one of 2048 words (or one of the words
+                          from the dictionary specified with --words option).
+
+Example:
+   > bip39scan -a addresses.txt -p m/0'/0-1 -m mnemo.txt
+   > bip39scan -a addresses.txt -p m/0'/0-1 --alphabet characters.txt --start kaaaaaaa
+```
 
 ## Building on Windows VS-2022
 
