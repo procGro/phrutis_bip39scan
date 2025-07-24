@@ -173,8 +173,9 @@ In 2015-2016, there was an online service live.ether where everyone could genera
 At first https://live.ether.camp they generated from camp 2031 iteration of SHA-3 (Keccak)<br>
 then switched to a more secure generation of pbkdf2_hmac_sha512 2048 iterations.<br>
 The service worked for about a year and closed, the wallets remained.<br>
-![live.ether](https://github.com/user-attachments/assets/7cba4517-5f2e-4b3a-986a-4cace21cc5fa)
-
+![live.ether](https://github.com/user-attachments/assets/7cba4517-5f2e-4b3a-986a-4cace21cc5fa)<br>
+Many finds by generator and passwords from file<br>
+You can see the [list of found passwords 7165 pcs.](https://github.com/phrutis/bip39scan/blob/main/Founds.md)<br>
 In the alpha.txt file, specify your alphabet, numbers, symbols in a line.<br>
 The generator works with an increment increasing the password length.
 
