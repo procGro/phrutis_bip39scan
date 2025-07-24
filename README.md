@@ -217,6 +217,8 @@ After that, the program again goes through 32 bits of entropy but with greater d
 Then, the third, fourth ... the program searches indefinitely.<br>
 No one has used this method! There are finds with a positive balance for it.
 
+https://github.com/user-attachments/assets/8c33254d-46a7-4570-a9e4-3d6d39d87693
+
 Vulnerability 32 bits in each phrase length, in each language from the list. <br>
 Also several patches + different coins. This is for years of searching. <br>
 There are finds with a positive balance - this indicates that not everything was cleaned. <br>
@@ -233,6 +235,7 @@ You will find what you found before until you reach the place where you stopped.
 Unix timestamp range (from January 1, 1970, to January 19, 2038).<br>
 date/time: 1970-01-01 00:00:00 for first timestamp. If chosen english ETH addresses pach ```m/44'/60'/0'/0/0-9```<br>
 it will generate "milk sad ..." mnemonic<br>
+<img width="977" height="511" alt="Image" src="https://github.com/user-attachments/assets/c38e79c6-08de-4b5c-8d85-f01f06bf7bba" /><br>
 
 ### Length of phrases
 ```--bits 64``` (random phrase 6 words)<br>
@@ -270,6 +273,10 @@ If not specified, the default will be en<br>
 ```-l ko``` Korean phrases<br>
 ```-l po``` Portuguese phrases<br>
 ```-l tu``` Turkish phrases<br>
+<img width="978" height="325" alt="Image" src="https://github.com/user-attachments/assets/c3afa204-81df-49a4-9f7f-8b5e17bbdbad" /><br>
+
+<img width="976" height="370" alt="Image" src="https://github.com/user-attachments/assets/e787746a-1646-428c-9865-d62ff85baf66" />
+
 ```
 bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 --bits 192 -l tu
 ```
