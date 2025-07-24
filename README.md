@@ -53,31 +53,31 @@ https://github.com/user-attachments/assets/2d9d24c7-8844-4de4-9e5d-7eba976d021e
 **Replace unknown words with** **\***<br>
 **Standard random 2048 words in positions with** **\***<br>
 ```
-bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M -e stdin --save Found.txt -p m/44'/0'/0'/0/0-9 cause * shield option monkey infant tray okay remember * * *
+bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M -e stdin --save Found.txt -p m/44'/0'/0'/0/0-9 -r cause * shield option monkey infant tray okay remember * * *
 ```
 ```
-bip39scan.exe -a allbtc3.bin -t P2SH --bloom 2048M -e stdin --save Found.txt -p m/49'/0'/0'/0/0-9 carpet * recycle * since * update glare seminar * worth answer
+bip39scan.exe -a allbtc3.bin -t P2SH --bloom 2048M -e stdin --save Found.txt -p m/49'/0'/0'/0/0-9 -r carpet * recycle * since * update glare seminar * worth answer
 ```
 ```
-bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M -e stdin --save Found.txt -p m/84'/0'/0'/0/0-9 * ostrich * * * unit glow tortoise world crop kit curve
+bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M -e stdin --save Found.txt -p m/84'/0'/0'/0/0-9 -r * ostrich * * * unit glow tortoise world crop kit curve
 ```
 ```
-bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M -e stdin --save Found.txt -p m/44'/60'/0'/0/0-9 * * * * * prison cup omit require also decorate sock
+bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M -e stdin --save Found.txt -p m/44'/60'/0'/0/0-9 -r * * * * * prison cup omit require also decorate sock
 ```
 
 
 **Random using your list of mnemonic words from the file words.txt**<br>
 ```
-bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M -e stdin --save Found.txt -p m/44'/0'/0'/0/0-9 -w words.txt cause * shield option monkey infant tray okay remember * * *
+bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M -e stdin --save Found.txt -p m/44'/0'/0'/0/0-9 -w words.txt -r cause * shield option monkey infant tray okay remember * * *
 ```
 ```
-bip39scan.exe -a allbtc3.bin -t P2SH --bloom 2048M -e stdin --save Found.txt -p m/49'/0'/0'/0/0-9 -w words.txt carpet * recycle * since * update glare seminar * worth answer
+bip39scan.exe -a allbtc3.bin -t P2SH --bloom 2048M -e stdin --save Found.txt -p m/49'/0'/0'/0/0-9 -w words.txt -r carpet * recycle * since * update glare seminar * worth answer
 ```
 ```
-bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M -e stdin --save Found.txt -p m/84'/0'/0'/0/0-9 -w words.txt * ostrich * * * unit glow tortoise world crop kit curve
+bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M -e stdin --save Found.txt -p m/84'/0'/0'/0/0-9 -w words.txt -r * ostrich * * * unit glow tortoise world crop kit curve
 ```
 ```
-bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M -e stdin --save Found.txt -p m/44'/60'/0'/0/0-9 -w words.txt * * * * * prison cup omit require also decorate sock
+bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M -e stdin --save Found.txt -p m/44'/60'/0'/0/0-9 -w words.txt -r * * * * * prison cup omit require also decorate sock
 ```
 
 **For full random, add only stars**<br>
