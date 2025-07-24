@@ -169,6 +169,12 @@ py 256.py | bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.t
 
 
 ## 7. Use the built-in generator passwords
+In 2015-2016, there was an online service live.ether where everyone could generate addresses using passwords.<br>
+At first https://live.ether.camp they generated from camp 2031 iteration of SHA-3 (Keccak)<br>
+then switched to a more secure generation of pbkdf2_hmac_sha512 2048 iterations.<br>
+The service worked for about a year and closed, the wallets remained.<br>
+![live.ether](https://github.com/user-attachments/assets/7cba4517-5f2e-4b3a-986a-4cace21cc5fa)
+
 In the alpha.txt file, specify your alphabet, numbers, symbols in a line.<br>
 The generator works with an increment increasing the password length.
 
