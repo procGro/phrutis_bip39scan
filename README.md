@@ -202,7 +202,7 @@ RU https://habr.com/ru/articles/771980/<br>
 EN https://milksad.info<br>
 EN https://milksad.info/disclosure.html#codename-milk-sad<br>
  
-bip39scan v3 generates all possible mnemonics across the entire 32-bit<br>
+bip39scan generates all possible mnemonics across the entire 32-bit<br>
 Not everyone knows about this vulnerability. Some sites and applications still use this vulnerable library.<br>
 Therefore, the chance to find a fresh coin is very high. Update your address databases.<br>
 The main advantage of bip39scan v3 is its high speed!
@@ -210,7 +210,6 @@ The main advantage of bip39scan v3 is its high speed!
 ### The program's operating principle:<br>
 When first launched, the program checks all 4294967296 phrases in vulnerable 32 bits of entropy.<br>
 At a speed of 550k phrases per second - this is only 2 hours of brute force.<br>
-All these phrases have been checked many times, and are unlikely to have a positive balance.<br> 
 Perhaps with a fresh address base there is a chance to find a fresh coin.<br> 
 There is also a chance to find by a non-standard patch or a rare coin, token.<br>
 After that, the program again goes through 32 bits of entropy but with greater depth, as if the entropy was generated a second time.<br>
