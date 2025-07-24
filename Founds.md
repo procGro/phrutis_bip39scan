@@ -1,4 +1,4 @@
-### Look for the phrase from the address in the general [list of 219к finds](https://github.com/phrutis/bip39scan3/releases/download/3.2/FOUNDS.txt)
+### Look for the phrase from the address in the general [list of 219к finds](https://github.com/phrutis/bip39scan/releases/download/4.0.1/FOUNDS.txt)
 
 | # | Private key | Address |
 |---|------------------------------------------------------|------------------------------------|
