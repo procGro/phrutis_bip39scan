@@ -325,7 +325,17 @@ http://89.23.98.83/up/eth_parse.bin  **10.1 GB**
 I recommend using large address bases.<br>
 For example, BCH may remain on the historical address 1... (P2PKH)
 
+Launching the program with a text database of addresses.<br>
+Each address must be on a new line!<br>
+The text address base is well suited for quick tests
+
+```bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 --bits 256```<br>
+```bip39scan.exe --save Found.txt -a btc3.txt -t P2SH -p m/49'/0'/0'/0/0-9 --bits 256```<br>
+```bip39scan.exe --save Found.txt -a btc-bc.txt -t bech32 -p m/84'/0'/0'/0/0-9 --bits 256```<br>
+```bip39scan.exe --save Found.txt -a eth_addresses.txt-t ethereum -p m/44'/60'/0'/0/0-9 --bits 256```
+
 ## Create your own .bin database from addresses
+
 To avoid waiting for a long time for the addresses to be loaded into the program.<br>
 Create and use binary databases.<br>
 The program will start in seconds<br>
@@ -338,7 +348,7 @@ BTC<br>
 ETH and tokens<br>
 ```bip39scan.exe --save Found.txt -a eth_addresses.txt --save-bin eth.bin -t ethereum -p m/44'/60'/0'/0/0-9 --bits 256```
 
-Next launches run like this<br>
+**Next launches run like this!** <br>
 ```bip39scan.exe --save Found.txt -a btc1.bin -t P2PKH -p m/44'/0'/0'/0/0-9 --bits 256```<br>
 ```bip39scan.exe --save Found.txt -a btc3.bin -t P2SH -p m/49'/0'/0'/0/0-9 --bits 256```<br>
 ```bip39scan.exe --save Found.txt -a bc.bin -t bech32 -p m/84'/0'/0'/0/0-9 --bits 256```<br>
