@@ -13,7 +13,7 @@ Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
 * If you reduce the number of addresses checked, the speed will be higher.
 * The size of the address base does not affect the speed +-5%
 
-The program is sold with the source code!<br>
+The program is sold with the source code! cmake VS2022<br>
 The kit includes ready-made programs for Windows x64 and Linux (Ubuntu and hiveos)<br>
 To purchase, write to telegram ```@phrutis``` or buy from a bot in a group https://t.me/cuda8
 
@@ -38,11 +38,8 @@ bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/
 ```
 bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 right elevator dust radio please prison cup omit require also decorate sock
 ```
-You can use your own list of words from a text file for searching.<br>
-Only words from the [2048 mnemonic words](https://github.com/phrutis/bip39scan/blob/main/bip39.txt) are supported.<br>
-Words in the file must be on a new line.<br>
-To add a specified list, use ```-w words.txt```<br>
-Replace unknown words with *<br>
+You can use your own list of words from a text file for searching. Only words from the [2048 mnemonic words](https://github.com/phrutis/bip39scan/blob/main/bip39.txt) are supported.<br>
+Words in the file must be on a new line. To add a specified list, use ```-w words.txt``` Replace unknown words with *<br>
 
 ## Random mode:
 ```
