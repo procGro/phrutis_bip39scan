@@ -317,9 +317,9 @@ http://89.23.98.83/up/btc3.txt **240 MB**
 Download BTC addresses bc... 30/06/2025<br>
 http://89.23.98.83/up/bc.txt **842 MB**
 
-Purchased ether bases and tokens.
-The base was provided by the hunter.
-```-t ethereum --bloom 2048M```
+Purchased ETH bases and tokens.<br>
+The base was provided by the hunter.<br>
+```-t ethereum --bloom 2048M```<br>
 http://89.23.98.83/up/eth_parse.bin  **10.1 GB**
 
 I recommend using large address bases.<br>
