@@ -1,4 +1,4 @@
-# bip39scan - New reliase v4.0.1 (22/07/2025) - $300
+# bip39scan - New reliase v4.0.1 (22/07/2025) - $500
 
 **MultiGPU program brute force mnemonic phrases**<br>
 Supports all patches, ETH, BTC, DOGE, LITE, dash, BTC Cash, addresses and ETH tokens.<br>
@@ -17,8 +17,15 @@ The program is sold with the source code! cmake VS2022<br>
 The kit includes ready-made programs for Windows x64 and Linux (Ubuntu and hiveos)<br>
 To purchase, write to telegram ```@phrutis``` or buy from a bot in a group https://t.me/cuda8
 
+## Linux (Ubuntu, hiveos)
+The commands are the same as for Windows.<br>
+You need to add in patch \ before '
+
+```chmod +x bip39scan```<br>
+```./bip39scan -a eth.bin -t ethereum --bloom 2048M --save Found.txt -p m/44\'/60\'/0\'/0/0-9 ...```
+
 # Modes:
-## Sequential search words
+## 1. Sequential search words:
 ```
 bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 uncover figure script * obscure waste metal quit depend bachelor trust erupt * impose brave leave number rapid oak wealth reopen * noodle tragic
 ```
@@ -41,7 +48,7 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 You can use your own list of words from a text file for searching. Only words from the [2048 mnemonic words](https://github.com/phrutis/bip39scan/blob/main/bip39.txt) are supported.<br>
 Words in the file must be on a new line. To add a specified list, use ```-w words.txt``` Replace unknown words with *<br>
 
-## Random mode:
+## 2. Random words:
 ```
 bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 -w mywordlist.txt -r uncover figure script * obscure waste * quit depend bachelor trust erupt * impose brave leave number rapid oak * reopen * noodle tragic
 ```
@@ -91,14 +98,397 @@ bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/
 bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 -r * * * * * * * * * * * *
 ```
 
-
-
-## Linux (Ubuntu, hiveos)
-The commands are the same as for Windows.<br>
-You need to add in patch \ before '
+## 3. Reading phrases and passwords from a text file:
+**The program reads everything from the file: phrases, passwords, passphrases, words, numbers...**<br>
+There are many finds on them. Supports dictionaries up to 64 TB.
 
 ```
-chmod +x bip39scan
+bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 -m dict.txt
 ```
-```./bip39scan -a eth.bin -t ethereum --bloom 2048M --save Found.txt -p m/44\'/60\'/0\'/0/0-9 ...```
+```
+bip39scan.exe -a allbtc3.bin -t P2SH --bloom 2048M --save Found.txt -p m/49'/0'/0'/0/0-9 -m dict.txt
+```
+```
+bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/0'/0/0-9 -m dict.txt
+```
+```
+bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 -m dict.txt
+```
 
+## 4. Reading phrases and passwords as a stream from an external generator
+Use ```-m stdin```<br>
+Use your own masks, dictionaries, rules, or other generators<br>
+```
+hashcat.exe --stdout -a 3 -1 ?u?l ?1?l?l?l?d?d?d?d | bip39scan.exe -m stdin -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9
+```
+```
+hashcat.exe --stdout -a 3 -1 ?u?l ?1?l?l?l?d?d?d?d | bip39scan.exe -m stdin -a allbtc3.bin -t P2SH --bloom 2048M --save Found.txt -p m/49'/0'/0'/0/0-9
+```
+```
+hashcat.exe --stdout -a 3 -1 ?u?l ?1?l?l?l?d?d?d?d | bip39scan.exe -m stdin -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/0'/0/0-9
+```
+```
+hashcat.exe --stdout -a 3 -1 ?u?l ?1?l?l?l?d?d?d?d | bip39scan.exe -m stdin -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9
+```
+
+## 5. Reading entropy from file
+Entropy must be in hex format with a new line.<br>
+Depending on the length of the hash, a phrase is created.
+```
+bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 -e entropy.txt
+```
+```
+bip39scan.exe -a allbtc3.bin -t P2SH --bloom 2048M --save Found.txt -p m/49'/0'/0'/0/0-9 -e entropy.txt
+```
+```
+bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/0'/0/0-9 -e entropy.txt
+```
+```
+bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 -e entropy.txt
+```
+
+## 6. Reading entropy stream from external generator
+Now you don't need to modify the program for the next vulnerability.<br>
+Create your own generators based on Python or C++ code.<br>
+There are many vulnerable random generators on the Internet (github).<br>
+Print the entropy in hex format, done.<br>
+The program will determine the length of the hex and create a phrase of the required length itself.
+
+```
+py 128bit.py | bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 -e stdin
+```
+```
+py entropy.py | bip39scan.exe -a allbtc3.bin -t P2SH --bloom 2048M --save Found.txt -p m/49'/0'/0'/0/0-9 -e stdin
+```
+```
+py md5.py | bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/0'/0/0-9 -e stdin
+```
+```
+py 256.py | bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 -e stdin
+```
+
+
+## 7. Use the built-in generator passwords
+In the alpha.txt file, specify your alphabet, numbers, symbols in a line.<br>
+The generator works with an increment increasing the password length.
+
+```
+bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 --alphabet alpha.txt --start a
+```
+```
+bip39scan.exe -a allbtc3.bin -t P2SH --bloom 2048M --save Found.txt -p m/49'/0'/0'/0/0-9 --alphabet alpha.txt --start a
+```
+```
+bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/0'/0/0-9 --alphabet alpha.txt --start a
+```
+```
+bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 --alphabet alpha.txt --start a
+```
+Every 5 minutes the progress status is written to the file status.txt<br>
+To continue, copy the position from status.txt and run --start FromHire1<br>
+If there is a space in the start word, run it like this --start "From Hire 1"<br>
+Important! The symbols from the starting position must be present in the alphabet.<br>
+
+
+## 8. Vulnerable generator libbitcoin explorer v3.2
+More about the vulnerability Milk Sad:<br>
+RU https://habr.com/ru/articles/771980/<br>
+EN https://milksad.info<br>
+EN https://milksad.info/disclosure.html#codename-milk-sad<br>
+ 
+bip39scan v3 generates all possible mnemonics across the entire 32-bit<br>
+Not everyone knows about this vulnerability. Some sites and applications still use this vulnerable library.<br>
+Therefore, the chance to find a fresh coin is very high. Update your address databases.<br>
+The main advantage of bip39scan v3 is its high speed!
+
+### The program's operating principle:<br>
+When first launched, the program checks all 4294967296 phrases in vulnerable 32 bits of entropy.<br>
+At a speed of 550k phrases per second - this is only 2 hours of brute force.<br>
+All these phrases have been checked many times, and are unlikely to have a positive balance.<br> 
+Perhaps with a fresh address base there is a chance to find a fresh coin.<br> 
+There is also a chance to find by a non-standard patch or a rare coin, token.<br>
+After that, the program again goes through 32 bits of entropy but with greater depth, as if the entropy was generated a second time.<br>
+Then, the third, fourth ... the program searches indefinitely.<br>
+No one has used this method! There are finds with a positive balance for it.
+
+Vulnerability 32 bits in each phrase length, in each language from the list. <br>
+Also several patches + different coins. This is for years of searching. <br>
+There are finds with a positive balance - this indicates that not everything was cleaned. <br>
+Perhaps they did not have such a fast GPUs program as bip39scan.
+
+[**View 27 finds BTC with positive balance**](https://github.com/phrutis/bip39scan/blob/main/Founds.md)<br>
+
+[**Download all empty finds CSV FOUNDS.txt (219к phrases)**](https://github.com/phrutis/bip39scan/releases/download/4.0.1/FOUNDS.txt)<br>
+
+Important! There is no continuation of the search.<br> 
+If you stop brute force, start the program from the beginning, it will start searching all over again.<br> 
+You will find what you found before until you reach the place where you stopped.
+
+Unix timestamp range (from January 1, 1970, to January 19, 2038).<br>
+date/time: 1970-01-01 00:00:00 for first timestamp. If chosen english ETH addresses pach ```m/44'/60'/0'/0/0-9```<br>
+it will generate "milk sad ..." mnemonic<br>
+
+### Length of phrases
+```--bits 64``` (random phrase 6 words)<br>
+```--bits 96``` (random phrase 9 words)<br>
+```--bits 128``` (random phrase 12 words)<br>
+```--bits 160``` (random phrase 15 words)<br>
+```--bits 192``` (random phrase 18 words)<br>
+```--bits 224``` (random phrase 21 words)<br>
+```--bits 256``` (random phrase 24 words)<br>
+
+```
+bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 --bits 192
+```
+```
+bip39scan.exe -a allbtc3.bin -t P2SH --bloom 2048M --save Found.txt -p m/49'/0'/0'/0/0-9 --bits 256
+```
+```
+bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/0'/0/0-9 --bits 224
+```
+```
+bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 --bits 128
+```
+### Phrase Languages
+If not specified, the default will be en<br>
+```-l en``` English phrases<br>
+```-l es``` Spanish phrases<br>
+```-l fr``` French phrases<br>
+```-l it``` Italian phrases<br>
+```-l ja``` Japanese phrases<br>
+```-l cs``` Czech phrases<br>
+```-l ru``` Russian phrases<br>
+```-l uk``` Ukrainian phrases<br>
+```-l zh_Hans``` Chinese (Simplified)<br>
+```-l zh_Hant``` Chinese (Traditional)<br>
+```-l ko``` Korean phrases<br>
+```-l po``` Portuguese phrases<br>
+```-l tu``` Turkish phrases<br>
+```
+bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 --bits 192 -l tu
+```
+```
+bip39scan.exe -a allbtc3.bin -t P2SH --bloom 2048M --save Found.txt -p m/49'/0'/0'/0/0-9 --bits 256 -l it
+```
+```
+bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/0'/0/0-9 --bits 224 -l zh_Hans
+```
+```
+bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 --bits 128 -l fr
+```
+
+# Download ready-made address databases for bip39scan
+
+**ALL ETH 1458757703 addresses with balance 09/07/2025** + empty + ALL ETH TOKENS with balance 09/07/2025 + empty history:<br>
+ARBITRUM, AVALANCHE, BASE, BNB, BSC, BTT, CRONOS, CELO, ETC, Ethereumnie, ERA, ERC20, ETH, Ethered, FANTOM, <br>
+GETH (Goerli), GNOSIS, IOTX, LINEA, MOONBEAM, MOONRIVER, OPBNB, OPTIMISM, POLYGON, VET, ZKEVM-POLYGON...<br>
+**Doesn't start on 8 GB cards! The database fits on a 12 GB card or more.** <br>
+**To run you need 32 GB of RAM (if you don't have that much, you can use the swap file)** <br>
+Add these arguments to run ```--bloom 4096M -t ethereum```<br>
+Download http://89.23.98.83/up/alleth.bin  **29 GB**
+
+**ALL BTC addresses 1...** P2PKH with balance + empty (history)<br>
+Add these arguments to run ```--bloom 2048M -t P2PKH```<br>
+Download http://89.23.98.83/up/allbtc1.bin  **11.9 GB**
+
+**ALL BTC addresses 3...** P2SH with balance + empty (history)<br>
+Add these arguments to run ```--bloom 2048M -t P2SH```<br>
+Download http://89.23.98.83/up/allbtc3.bin  **7.6 GB**
+
+**ALL BTC addresses bc1q...** bech32 with balance + empty (history)<br>
+Add these arguments to run ```--bloom 2048M -t bech32```<br>
+Download http://89.23.98.83/up/allbc.bin  **6.5 GB**
+
+**List OTHESR Databases .bin**<br>
+see http://89.23.98.83/up/
+
+## Addresses only with positive balance
+
+Download ETH addresses 0x + tokens 02/07/2025<br>
+```-t ethereum --bloom 2048M```<br>
+http://89.23.98.83/up/eth.bin  **6.9 GB**
+
+Download BTC addresses 1... 30/06/2025<br>
+http://89.23.98.83/up/btc1.txt  **787 MB**
+
+Download BTC addresses 3... 30/06/2025<br>
+http://89.23.98.83/up/btc3.txt **240 MB**
+
+Download BTC addresses bc... 30/06/2025<br>
+http://89.23.98.83/up/bc.txt **842 MB**
+
+Purchased ether bases and tokens.
+The base was provided by the hunter.
+```-t ethereum --bloom 2048M```
+http://89.23.98.83/up/eth_parse.bin  **10.1 GB**
+
+I recommend using large address bases.<br>
+For example, BCH may remain on the historical address 1... (P2PKH)
+
+## Create your own .bin database from addresses
+To avoid waiting for a long time for the addresses to be loaded into the program.<br>
+Create and use binary databases.<br>
+The program will start in seconds<br>
+Create databases:<br>
+BTC<br>
+```bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH --save-bin btc1.bin -p m/44'/0'/0'/0/0-9 --bits 256```<br>
+```bip39scan.exe --save Found.txt -a btc3.txt -t P2SH --save-bin btc3.bin -p m/49'/0'/0'/0/0-9 --bits 256```<br>
+```bip39scan.exe --save Found.txt -a btc-bc.txt -t bech32 --save-bin bc.bin -p m/84'/0'/0'/0/0-9 --bits 256```
+
+ETH and tokens<br>
+```bip39scan.exe --save Found.txt -a eth_addresses.txt --save-bin eth.bin -t ethereum -p m/44'/60'/0'/0/0-9 --bits 256```
+
+Next launches run like this<br>
+```bip39scan.exe --save Found.txt -a btc1.bin -t P2PKH -p m/44'/0'/0'/0/0-9 --bits 256```<br>
+```bip39scan.exe --save Found.txt -a btc3.bin -t P2SH -p m/49'/0'/0'/0/0-9 --bits 256```<br>
+```bip39scan.exe --save Found.txt -a bc.bin -t bech32 -p m/84'/0'/0'/0/0-9 --bits 256```<br>
+```bip39scan.exe --save Found.txt -a alleth.bin --bloom 4096M -t ethereum -p m/44'/60'/0'/0/0-9 --bits 256```
+
+
+Where can I download a fresh database of addresses?<br>
+BTC and other coins https://blockchair.com/dumps<br>
+Fresh ETH addresses + ETH Tokens taken from node dumps<br>
+https://routescan.io/dumps?page=2&nexttoken=undefined<br>
+Each address must be on a new line.<br>
+Ethereum addresses must be 0x...<br>
+Bitcoin addresses 1.., 3.., bc.. (New long addresses bc.. does not accept)
+
+# FAQ
+
+**The program did not find my test password from the file.**
+
+Do not use small dictionaries for the test.<br>
+The program starts in 3-5 seconds, at a speed of 500k, it can go through your dictionary of 25 phrases in 0.001 sec and finish the work without having time to give the result.<br>
+I recommend using dictionaries from 5 million lines and more.<br>
+The program has 65536 threads, while 50 threads processed your list, other threads (65511 empty) without load finished the program earlier.<hr>
+
+**How to change the derivation in a patch?**
+
+You can set a non-standard patch derivation at your discretion:<br>
+m/0-9<br>
+m/0/0-9<br>
+m/0/0/0-9<br>
+m/0-99/0-99/0-99<br>
+m/44'/0-99'/0'/0/0-9<br>
+m/0-99'/0-99'/0'/0-5/0-999<br>
+max value: **2147483647**<br>
+m/44'/0-2147483647'/0-2147483647'/0-2147483647/0-2147483647<hr>
+
+
+## Building on Windows VS-2022
+
+Install cmake 3.30+ from this link: https://github.com/Kitware/CMake/releases/download/v3.31.8/cmake-3.31.8-windows-x86_64.msi<br>
+Or find another version on this page: https://cmake.org/download/<br>
+
+Install Visual Studio 2022 community: https://learn.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2022<br>
+click the big Download button
+ 
+Install Nvidia CUDA 12.9: https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_local<br>
+choose Windows version
+ 
+Install OpenSSL from https://slproweb.com/download/Win64OpenSSL-3_0_16.msi
+
+Go to the "Sources" folder<br>
+In cmd run: 
+
+```cmake bip39scan```
+
+The project files will appear in the folder:<br>
+bip39scan.sln (run this file the project will open)<br>
+bip39scan.vcxproj<br>
+bip39scan.vcxproj.filters<br>
+..
+
+![brute bip39 phrases](https://github.com/user-attachments/assets/16e2197f-a01e-43ee-a02e-5b6f9e515e15)
+
+OpenSSL should be found. If now, rename c:\program files\OpenSSL-Win64 to OpenSSL and re-run. Note that the libcrypto dll should<br>
+be in PATH or in the current directory when running bip39scan.
+
+ 
+Visual Studio 2022 opens. In the top toolbar choose: Release/x64.<br>
+In the "Solution explorer" to the right, right-click bip39scan, choose "build".<br>
+The executable builds in the your-build-directory\Release
+ 
+![gpu brute bip39 mnemonic](https://github.com/user-attachments/assets/34d6574c-20a3-462c-a857-117ae9ae664f)
+
+If necessary run precomp.exe file precomp.bin will be generated
+
+## Building on Ubuntu:
+
+Below is detailed instruction with bash commands required to build bip39scan.<br>
+The symbol '$' denotes command prompt.<br>
+If your prompt is shown as '#' on your terminal, skip 'sudo'.<br>
+For example, instead of
+
+$ sudo sh cuda_12.0.1_525.85.12_linux.run
+
+you should run
+
+sh cuda_12.0.1_525.85.12_linux.run
+
+Let's start.
+
+install CUDA. Download the linux version from the NVIDIA website and run.<br>
+Open https://developer.nvidia.com/cuda-12-0-1-download-archive?target_os=Linux<br>
+in your browser and choose your system. The following is valid for Ubuntu 18.04.
+
+$ wget https://developer.download.nvidia.com/compute/cuda/12.0.1/local_installers/cuda_12.0.1_525.85.12_linux.run<br>
+$ sudo sh cuda_12.0.1_525.85.12_linux.run
+
+Skip the driver installation (deselect the 'driver' checkbox) if you already have it.
+
+To ensure the cuda is installed, run:<br>
+$ nvcc --version<br>
+
+It should print information and version of CUDA.<br>
+If no nvcc is found, try adding the CUDA bin path to the PATH variable:<br>
+$ export PATH=/usr/local/cuda/bin:$PATH
+
+install build-essential:<br>
+$ sudo apt-get install build-essential
+
+Check the gcc version:<br>
+$ gcc --version
+
+if the version is less than 9, install gcc 9:
+
+$ sudo apt-get install software-properties-common<br>
+$ sudo add-apt-repository ppa:jonathonf/gcc<br>
+$ sudo apt-get update<br>
+$ sudo apt-get install gcc-9<br>
+$ sudo apt-get install g++-9<br>
+$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 10<br>
+$ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 10
+
+install libssl:<br>
+$ sudo apt-get install libssl-dev<br>
+for the client-server version, install boost:<br>
+$ sudo apt-get install libboost-all-dev
+
+You will need Boost version at least 1.71. If apt-get does not intall at least 1.71, build Boost from source:
+$ wget https://archives.boost.io/release/1.71.0/source/boost_1_71_0.tar.gz<br>
+$ tar -xzvf boost_1_71_0.tar.gz<br>
+$ cd boost_1_71_0<br>
+$ ./bootstrap.sh --prefix=/usr && ./b2 stage threading=multi link=static<br>
+$ sudo ./b2 install threading=multi link=static<br>
+$ sudo ln -svf detail/sha1.hpp /usr/include/boost/uuid/sha1.hpp
+
+install cmake from here: https://cmake.org/download/ choose Binary distributions, if that does not work - build from source<br>
+$ wget https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0-linux-x86_64.tar.gz<br>
+$ tar -xzvf cmake-3.28.0-linux-x86_64.tar.gz
+
+unpack the bip39scan source, let's say bip39scan/<br>
+make an empty build directory, and run cmake in it e.g.<br>
+$ mkdir bip39scan-build<br>
+$ cd bip39scan-build
+
+On first make, it will generate precomp.bin file, which may take quite some time. <br>
+If you already have the precomp.bin, copy it to the build directory and comment this line in the ../bip39scan/CMakeLists.txt: add_dependencies(bip39scan precomp-bin) like this:<br>
+#add_dependencies(bip39scan precomp-bin)
+
+Save CMakeLists.txt and run cmake:
+$ ../cmake-3.28.0-linux-x86_64/bin/cmake ../bip39scan<br>
+
+where ../bip39scan is the source code directory<br>
+make the project<br>
+$ make bip39scan
