@@ -102,6 +102,8 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 **The program reads everything from the file: phrases, passwords, passphrases, words, numbers...**<br>
 There are many finds on them. Supports dictionaries up to 64 TB.
 
+https://github.com/user-attachments/assets/b981b17f-db42-41a7-adb8-3b6dc7d73803
+
 ```
 bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 -m dict.txt
 ```
@@ -118,6 +120,9 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 ## 4. Reading phrases and passwords as a stream from an external generator
 Use ```-m stdin```<br>
 Use your own masks, dictionaries, rules, or other generators<br>
+
+https://github.com/user-attachments/assets/5d930d3d-4224-4316-8f8f-87a721e21ec8
+
 ```
 hashcat.exe --stdout -a 3 -1 ?u?l ?1?l?l?l?d?d?d?d | bip39scan.exe -m stdin -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9
 ```
@@ -179,6 +184,8 @@ You can see the [list of found passwords 7165 pcs.](https://github.com/phrutis/b
 In the alpha.txt file, specify your alphabet, numbers, symbols in a line.<br>
 The generator works with an increment increasing the password length.
 
+https://github.com/user-attachments/assets/d0fc2faa-b0bb-4f7b-8c4e-575972a0cb26
+
 ```
 bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 --alphabet alpha.txt --start a
 ```
@@ -194,6 +201,9 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 Every 5 minutes the progress status is written to the file status.txt<br>
 To continue, copy the position from status.txt and run --start FromHire1<br>
 If there is a space in the start word, run it like this --start "From Hire 1"<br>
+
+https://github.com/user-attachments/assets/313156e0-d82e-499d-a5c0-644e067d76cd
+
 Important! The symbols from the starting position must be present in the alphabet.<br>
 
 
