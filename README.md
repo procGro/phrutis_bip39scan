@@ -31,7 +31,7 @@ Words in the file must be on a new line.<br>
 To add a specified list, use ```-w words.txt```<br>
 Replace unknown words with *<br>
 
-## Random mode:<br>
+## Random mode:
 ```bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 -w mywordlist.txt -r uncover figure script * obscure waste * quit depend bachelor trust erupt * impose brave leave number rapid oak * reopen * noodle tragic```
 
 https://github.com/user-attachments/assets/2d9d24c7-8844-4de4-9e5d-7eba976d021e
