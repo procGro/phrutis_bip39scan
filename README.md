@@ -15,7 +15,7 @@ Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
 
 The program is sold with the source code!<br>
 The kit includes ready-made programs for Windows x64 and Linux (Ubuntu and hiveos)<br>
-To purchase, write to telegram ```@phrutis``` or buy from a bot in a group t.me/cuda8
+To purchase, write to telegram ```@phrutis``` or buy from a bot in a group https://t.me/cuda8
 
 # Modes:
 ## Sequential search words
