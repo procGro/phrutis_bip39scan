@@ -407,6 +407,53 @@ m/0-99'/0-99'/0'/0-5/0-999<br>
 max value: **2147483647**<br>
 m/44'/0-2147483647'/0-2147483647'/0-2147483647/0-2147483647<hr>
 
+**My program won't start - bloom memory error...?**
+
+Take a screenshot of the program window and send it to me.
+
+99% you made a mistake in the launch command.<br>
+Most likely you did not specify the memory size for the filter.<br>
+Base.bin 7 GB+ specify --bloom 2048M<br>
+Base.bin 20 GB+ specify --bloom 4096M<br>
+Base.bin 50 GB+ specify --bloom 8192M<hr>
+
+**Where can I make a mnemonic from a password?**
+
+Online generator http://89.23.98.83<br>
+Bookmark this<hr>
+
+**What is precomp.bin**?
+
+This is a table of acceleration, pre-calculated points of the curve<hr>
+
+**Words and letters from the previous generation remain (stick) in my window, how can I fix it?**
+
+Languages or some characters may also be displayed incorrectly. <br>
+These are properties of the correction and different language encodings.<br>
+This does not affect the brute force process itself.<hr>
+
+**What mode is better to search in? Where are there more prospects? Where and how much did you find?**
+
+Try different modes and directions.<br>
+Search in the one in which you think you have the best chance of finding.<br>
+Finds are found, they are not asked about, and they are not told. When you find one, will you tell everyone?<hr>
+
+**How can I search for other coins like Salona?**
+
+Create several test addresses.<br>
+Convert addresses to ripemd160 hashes.<br>
+Be sure to sort 00...ff<br>
+Run the program, specify the type, for example for BTC -t -t P2PKH<br>
+The program will find an empty address BTC 1.... you don't need it.<br>
+Take the phrase, or private key, generate the address of the desired coin<br>
+If you do everything correctly, you will find test addresses<hr>
+
+**Why specify -t typecoin ?**
+
+When you search with binary database the program does not know what coin you are looking for.<br>
+BE SURE TO SPECIFY - t typecoin
+<hr>
+
 ## bip39scan.exe -h
 ```
 C:\Users\User\Downloads\bip39scan-win64>bip39scan -h
