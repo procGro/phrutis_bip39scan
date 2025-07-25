@@ -445,7 +445,7 @@ Finds are found, they are not asked about, and they are not told. When you find 
 Create several test addresses.<br>
 Convert addresses to ripemd160 hashes.<br>
 Be sure to sort 00...ff<br>
-Run the program, specify the type, for example for BTC -t -t P2PKH<br>
+Run the program, specify the type, for example for BTC ```-t P2PKH```<br>
 The program will find an empty address BTC 1.... you don't need it.<br>
 Take the phrase, or private key, generate the address of the desired coin<br>
 If you do everything correctly, you will find test addresses<hr>
