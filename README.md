@@ -7,8 +7,8 @@ Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
 
 | GPU card | 24 words speed | 18 words speed | 12 words speed | Stream, reading from file, other brute |
 |----------|---------------|----------------|----------------|----------------------------------------|
-| **RTX 5090** | **250M** mnemo/s	| **63M** mnemo/s	| **17M** mnemo/s | 800k phrases/s - 500k entropy/s |
-| **RTX 4090** | **160M** mnemo/s | **38M** mnemo/s	| **11M** mnemo/s | 530k phrases/s - 300k entropy/s | 
+| **RTX 5090** | **250M** mnemo/s	| **63M** mnemo/s	| **17M** mnemo/s | 800k phrases/s - 700k entropy/s |
+| **RTX 4090** | **160M** mnemo/s | **38M** mnemo/s	| **11M** mnemo/s | 530k phrases/s - 450k entropy/s | 
 * The speed is indicated when checking 10 addresses in each phrase.
 * If you reduce the number of addresses checked, the speed will be higher.
 * The size of the address base does not affect the speed +-5%
