@@ -1,4 +1,4 @@
-# bip39scan - New reliase v 4.0.1 (22/07/2025) - $500
+# bip39scan - New reliase v 4.0.1 (22/07/2025) - ~~$500~~ $250
 
 **MultiGPU program brute force mnemonic phrases**<br>
 Supports all patches, ETH, BTC, DOGE, LITE, dash, BTC Cash, addresses and ETH tokens.<br>
