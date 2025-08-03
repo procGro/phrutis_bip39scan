@@ -1,14 +1,23 @@
-# bip39scan - New reliase v 4.0.1 (22/07/2025) - $500
+# bip39scan - New reliase v 4.1.2 (29/07/2025) - $500
+**Update! For those who bought versions 3.2, 4.0.1, the password is the same.**<br>
+**All future updates and versions will have the same password.**
+
+### Added:
+1. Mode 8 start and continue from the specified depth. argument ```--depth 123```
+2. Mode 8 - Write the current depth position status to the ```checkpoin.txt```
+3. New mode 9 BIP32 - Reading entropy from file ```--core entropy.txt```
+4. New mode 9 BIP32 - Reading entropy stream from external generator ```--core stdin```
+
 
 **MultiGPU program brute force mnemonic phrases**<br>
 Supports all patches, ETH, BTC, DOGE, LITE, dash, BTC Cash, addresses and ETH tokens.<br>
 Automatically detects the coin type based on the given patch. You can specify the type manually.<br> 
 Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br> 
 
-| GPU card | 24 words speed | 18 words speed | 12 words speed | Stream, reading from file, other brute |
-|----------|---------------|----------------|----------------|----------------------------------------|
-| **RTX 5090** | **250M** mnemo/s	| **63M** mnemo/s	| **17M** mnemo/s | 800k phrases/s - 700k entropy/s |
-| **RTX 4090** | **160M** mnemo/s | **38M** mnemo/s	| **11M** mnemo/s | 530k phrases/s - 450k entropy/s | 
+| GPU card | 24 words speed | 18 words speed | 12 words speed | Stream, reading from file, other brute | Mode 9, 10 |
+|----------|---------------|----------------|----------------|----------------------------------------|----------------------------|
+| **RTX 5090** | **250M** mnemo/s	| **63M** mnemo/s	| **17M** mnemo/s | 800k phrases/s - 700k entropy/s | **10M** entropy/s |
+| **RTX 4090** | **160M** mnemo/s | **38M** mnemo/s	| **11M** mnemo/s | 530k phrases/s - 450k entropy/s | **6M** entropy/s |
 * The speed is indicated when checking 10 addresses in each phrase.
 * If you reduce the number of addresses checked, the speed will be higher.
 * The size of the address base does not affect the speed +-5%
@@ -22,7 +31,7 @@ The commands are the same as for Windows.<br>
 You need to add in patch \ before '
 
 ```chmod +x bip39scan```<br>
-```./bip39scan -a eth.bin -t ethereum --bloom 2048M --save Found.txt -p m/44\'/60\'/0\'/0/0-9 ...```
+```./bip39scan -a alleth.bin -t ethereum --bloom 2048M --save Found.txt -p m/44\'/60\'/0\'/0/0-9 ...```
 
 # Modes:
 ## 1. Sequential search words:
@@ -218,36 +227,32 @@ EN https://milksad.info/disclosure.html#codename-milk-sad<br>
 bip39scan generates all possible mnemonics across the entire 32-bit<br>
 Not everyone knows about this vulnerability. Some sites and applications still use this vulnerable library.<br>
 Therefore, the chance to find a fresh coin is very high. Update your address databases.<br>
-The main advantage of bip39scan v3 is its high speed!
+The main advantage of bip39scan is its high speed!
 
 ### The program's operating principle:<br>
 When first launched, the program checks all 4294967296 phrases in vulnerable 32 bits of entropy.<br>
-At a speed of 550k phrases per second - this is only 2 hours of brute force.<br>
-Perhaps with a fresh address base there is a chance to find a fresh coin.<br> 
-There is also a chance to find by a non-standard patch or a rare coin, token.<br>
 After that, the program again goes through 32 bits of entropy but with greater depth, as if the entropy was generated a second time.<br>
 Then, the third, fourth ... the program searches indefinitely.<br>
-No one has used this method! There are finds with a positive balance for it.
+No one has used this method! <br>
+There are finds with a positive balance for it.
 
 https://github.com/user-attachments/assets/8c33254d-46a7-4570-a9e4-3d6d39d87693
 
 Vulnerability 32 bits in each phrase length, in each language from the list. <br>
 Also several patches + different coins. This is for years of searching. <br>
-There are finds with a positive balance - this indicates that not everything was cleaned. <br>
-Perhaps they did not have such a fast GPUs program as bip39scan.
+There are finds with a positive balance
 
 [**View 27 finds BTC with positive balance**](https://github.com/phrutis/bip39scan/blob/main/Founds.md)<br>
 
 [**Download all empty finds CSV FOUNDS.txt (219к phrases)**](https://github.com/phrutis/bip39scan/releases/download/4.0.1/FOUNDS.txt)<br>
 
-Important! There is no continuation of the search.<br> 
-If you stop brute force, start the program from the beginning, it will start searching all over again.<br> 
-You will find what you found before until you reach the place where you stopped.
-
 Unix timestamp range (from January 1, 1970, to January 19, 2038).<br>
 date/time: 1970-01-01 00:00:00 for first timestamp. If chosen english ETH addresses pach ```m/44'/60'/0'/0/0-9```<br>
 it will generate "milk sad ..." mnemonic<br>
 <img width="977" height="511" alt="Image" src="https://github.com/user-attachments/assets/c38e79c6-08de-4b5c-8d85-f01f06bf7bba" /><br>
+
+**Every 5 minutes the depth position is saved to the file checkpoint.txt**<br>
+**To continue, use the argument ```--depth 123``` (value from the file)**
 
 ### Length of phrases
 ```--bits 64``` (random phrase 6 words)<br>
@@ -301,6 +306,51 @@ bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/
 ```
 bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 --bits 128 -l fr
 ```
+
+## 9. BIP32
+This mode uses hmac_sha512 + salt "Bitcoin seed"<br>
+Designed to search for old Bitcoin core and other old BIP32 wallets.<br>
+Recommendations:<br>
+1. Using 128 or 256 bit hashes for searching.<br>
+2. Look for Legacy BTC addresses 1... (there were no other types at the time)<br>
+3. Addresses 1... were all UNCOMPRESSED before March 2012!<br>
+These are large miner addresses that received 50 BTC per block.<br>
+Use uncompressed type: ```-t P2PKH_UNCOMPRESSED```<br>
+
+**BIP32 patches:**<br>
+m/0-5<br>
+m/0/0-5<br>
+m/0'/0-5<br>
+**Bitcoin core**<br>
+m/0'/0-5'<br>
+m/0'/0'/0-5'<br>
+
+ ## Reading entropy from file
+
+```
+bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/0/0-5 --core entropy.txt
+```
+```
+bip39scan.exe -a allbtc1.bin -t P2PKH_UNCOMPRESSED --bloom 2048M --save Found.txt -p m/0/0-5 --core entropy.txt
+```
+
+ ## Receiving entropy from an external generator
+```
+py generate.py | bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/0/0-5 --core stdin
+```
+```
+py generate.py | bip39scan.exe -a allbtc1.bin -t P2PKH_UNCOMPRESSED --bloom 2048M --save Found.txt -p m/0/0-5 --core stdin
+```
+
+Example founds:
+
+| private key | address | path | entropy (Bitcoin seed) |
+|----------|---------------|----------------|----------------|
+| L4qs8CTqn4ZY1gJfEgPc1vFpAQNx8wNuF5o9dbM2HhtWnZQKg7an | 1EnXumNo7pyybB9Ntmfsa6S5WbAjsiwLkp | m/3 | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 |
+| L5LxK8WV9wNDemaYBtpEURWi3sHmGsEHpSGmSfahQrreTYKukp9W | 12CL4K2eVqj7hQTix7dM7CVHCkpP17Pry3 | m/0/0 | 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f |
+| KxtynmemHgVetU7rp5MsqSnQ6rvpF7My8DH94Cs7bTH9hwTNn3WL | 15MbJzwHGPq5ETKLBp3yPHoxQ5GUB9avyS | m/0/9 | 000102030405060708090a0b0c0d0e0f0f0e0d0c0b0a09080706050403020100 |
+
+## 10. Coming Soon In Process
 
 # Download ready-made address databases for bip39scan
 
@@ -409,6 +459,10 @@ m/0-99'/0-99'/0'/0-5/0-999<br>
 max value: **2147483647**<br>
 m/44'/0-2147483647'/0-2147483647'/0-2147483647/0-2147483647<hr>
 
+**Tell me patches of different coins**
+
+[**Full list of patches BIP32, BIP39**](https://github.com/phrutis/bip39scan/blob/main/Patches.md)
+
 **My program won't start - bloom memory error...?**
 
 Take a screenshot of the program window and send it to me.
@@ -459,7 +513,7 @@ BE SURE TO SPECIFY - t typecoin
 ## bip39scan.exe -h
 ```
 C:\Users\User\Downloads\bip39scan-win64>bip39scan -h
-bip39scan v 4.0.1 (phrutis modification 22/07/2025)
+bip39scan v 4.1.2 (phrutis modification 29/07/2025)
 Bruteforce bip39 mnemonics
 Syntax: bip39scan [OPTIONS] [MNEMO]
 OPTIONS:
@@ -498,6 +552,8 @@ OPTIONS:
     -w, --words FILE      Use custom dictionary for '*' placeholders in the mnemo template; each word in a separate text line.
                           Each word should be a valid BIP39 word in the specified language (--lang).
         --dump            Dumps valid mnemonics.
+        --core            BIP32 reading from file and receiving stream from external generator.
+        --depth           Starting range of generator initialization depth
     -r, --random          Randomize the mnemonics generated with MNEMO templates (see below).
     MNEMO                 Mnemonic template, up to 24 words. Can contain placeholders '*'. If less than
                           12 words, the rest are placeholders. Each '*' is replaced with one of 2048 words (or one of the words
