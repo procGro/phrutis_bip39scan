@@ -461,7 +461,7 @@ m/44'/0-2147483647'/0-2147483647'/0-2147483647/0-2147483647<hr>
 
 **Tell me patches of different coins**
 
-[**Full list of patches BIP32, BIP39**](https://github.com/phrutis/bip39scan/blob/main/Patches.md)
+[**Full list of patches BIP32, BIP39**](https://github.com/phrutis/bip39scan/blob/main/Patches.md)<hr>
 
 **My program won't start - bloom memory error...?**
 
