@@ -14,7 +14,7 @@ Supports all patches, ETH, BTC, DOGE, LITE, dash, BTC Cash, addresses and ETH to
 Automatically detects the coin type based on the given patch. You can specify the type manually.<br> 
 Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br> 
 
-| GPU card | 24 words speed | 18 words speed | 12 words speed | Stream, reading from file, other brute | Mode 9 BIP32 |
+| GPU card | 24 words speed | 18 words speed | 12 words speed | Stream, reading from file, other brute | BIP32 |
 |----------|---------------|----------------|----------------|----------------------------------------|---------------|
 | **RTX 5090** | **250M** mnemo/s	| **63M** mnemo/s	| **17M** mnemo/s | 800k phrases/s - 700k entropy/s | **10M** entropy/s |
 | **RTX 4090** | **160M** mnemo/s | **38M** mnemo/s	| **11M** mnemo/s | 530k phrases/s - 450k entropy/s | **6M** entropy/s |
