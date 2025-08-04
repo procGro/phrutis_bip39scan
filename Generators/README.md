@@ -111,7 +111,7 @@ for x in alphanumeric_strings():
 
 ```
 
-## Node 9 - BIP32
+## Mode 9 - BIP32
 Here is a slightly different algorithm, salt.<br>
 ```000102030405060708090a0b0c0d0e0f0f0e0d0c0b0a09080706050403020100 -> hmac_sha512 salt = "Bitcoin seed" -> addresses```
 
