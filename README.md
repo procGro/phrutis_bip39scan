@@ -463,6 +463,16 @@ m/44'/0-2147483647'/0-2147483647'/0-2147483647/0-2147483647<hr>
 
 [**Full list of patches BIP32, BIP39**](https://github.com/phrutis/bip39scan/blob/main/Patches.md)<hr>
 
+**Why do we need streams, generators?**<br>
+**How does it work? Show an example.**
+
+Most random generators are vulnerable.<br>
+If you have the knowledge to write code.cu to embed a generator, you wouldn't ask such a question.<br>
+Even if you have such knowledge, it's easier and faster to write a three-line python code, done!<br>
+Changing the program for each generator is not rational.<br>
+It's easier to find a phrase by vulnerability than to endlessly brute-force emptiness.<br>
+[**Examples of generators**](https://github.com/phrutis/bip39scan/blob/main/Generators/README.md)<hr>
+
 **My program won't start - bloom memory error...?**
 
 Take a screenshot of the program window and send it to me.
