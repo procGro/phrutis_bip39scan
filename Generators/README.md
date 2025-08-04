@@ -85,6 +85,15 @@ int main() {
 
 ```
 ## Python (pass -> sha256 = 256 bit entropy)
+### Three lines of code
+
+```
+import os
+
+while True:
+	print(os.urandom(32).hex())
+```
+
 
 ```
 import string
