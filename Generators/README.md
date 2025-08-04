@@ -2,7 +2,7 @@
 Accepts everything. Generate passwords, phrases, numbers, seeds, hex...<br>
 ```passwords -> pbkdf2_hmac_sha512 -> addresses```
 
-
+### Generate datatimes
 ```
 from datetime import datetime, timedelta
 
@@ -13,8 +13,46 @@ for i in range(500000000):
 	print(dw)
 ```
 
+### Generate electrum v1 phrases 12 words from pass
+
+```
+import string
+import itertools
+import hashlib
+from hdwallet.entropies import (
+    ElectrumV1Entropy, ELECTRUM_V1_ENTROPY_STRENGTHS
+)
+from hdwallet.mnemonics import (
+    ElectrumV1Mnemonic, ELECTRUM_V1_MNEMONIC_LANGUAGES
+)
+from hdwallet.seeds import ElectrumV1Seed
+from hdwallet.hds import ElectrumV1HD
+from hdwallet.derivations import ElectrumDerivation
+from hdwallet.consts import PUBLIC_KEY_TYPES
 
 
+def alphanumeric_strings():
+    for n in itertools.count():
+        for t in itertools.product(string.ascii_lowercase + string.digits, repeat=n):
+            yield ''.join(t)
+
+for x in alphanumeric_strings():
+    #keypair = hashlib.sha256(x.encode()).hexdigest()
+    keypair = hashlib.md5(x.encode()).hexdigest()
+    # Generate Electrum-V1 entropy
+    entropy: str = ElectrumV1Entropy.generate(
+    strength=ELECTRUM_V1_ENTROPY_STRENGTHS.ONE_HUNDRED_TWENTY_EIGHT
+    )
+    electrum_v1_entropy: ElectrumV1Entropy = ElectrumV1Entropy(entropy=keypair)
+
+
+    # Generate Electrum-V1 mnemonic
+    mnemonic: str = ElectrumV1Mnemonic.from_entropy(
+    entropy=electrum_v1_entropy, language=ELECTRUM_V1_MNEMONIC_LANGUAGES.ENGLISH)
+    electrum_v1_mnemonic: ElectrumV1Mnemonic = ElectrumV1Mnemonic(mnemonic=mnemonic)
+    print(electrum_v1_mnemonic.mnemonic())
+
+```
 
 ## Mode 6 - Reading entropy stream from external generator
 Make a random generator with vulnerable entropy 64, 96, 128, 160, 192, 224, 256 bit. <br>
@@ -24,13 +62,11 @@ The generator passes the hash to the program.<br>
 bip39scan creates (based on the length) of the hash a mnemonic phrase, checks the addresses against the database<br>
 ```87659e70ff0aeb3c272f219f8806ae1fc96b13626c85a73d35ca569f7056f5c9 -> create mnemonic -> pbkdf2_hmac_sha512 -> addresses```
 
-## C++
+## C++ random 256 bit (simplest)
 ```
 #include <iostream>
 #include <time.h>
 using namespace std;
-
-
 
 int main() {
 
@@ -66,9 +102,6 @@ for x in alphanumeric_strings():
 
 ```
 
-
-
-
 ## Node 9 - BIP32
 Here is a slightly different algorithm, salt.<br>
 ```000102030405060708090a0b0c0d0e0f0f0e0d0c0b0a09080706050403020100 -> hmac_sha512 salt = "Bitcoin seed" -> addresses```
@@ -91,6 +124,7 @@ with open("file.txt", "r", encoding='utf_8_sig', errors='ignore') as f:
 
 
 # List of other generator examples 
+### Radmom 16 bytes (128 bit)
 
 ```
 import base64
@@ -172,6 +206,7 @@ for x in alphanumeric_strings():
 		print(keypair33)
 
 ```
+### List of vulnerable generators (examples)
 
 ```
 import asyncio
@@ -287,7 +322,7 @@ with open("file.txt", "r", encoding='utf_8_sig', errors='ignore') as f:
            line = f.readline()
            if not line:
                break
-           # Обработка строки line
+
            keypair = hashlib.sha256(line.encode()).hexdigest()
            print(keypair)
            for i in range(6):
