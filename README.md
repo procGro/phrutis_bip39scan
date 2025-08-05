@@ -328,18 +328,37 @@ m/0'/0'/0-5'<br>
  ## Reading entropy from file
 
 ```
-bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/0/0-5 --core entropy.txt
-```
-```
 bip39scan.exe -a allbtc1.bin -t P2PKH_UNCOMPRESSED --bloom 2048M --save Found.txt -p m/0/0-5 --core entropy.txt
+```
+
+```
+bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 --core entropy.txt
+```
+```
+bip39scan.exe -a allbtc3.bin -t P2SH --bloom 2048M --save Found.txt -p m/49'/0'/0'/0/0-9 --core entropy.txt
+```
+```
+bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/0'/0/0-9 --core entropy.txt
+```
+```
+bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 --core entropy.txt
 ```
 
  ## Receiving entropy from an external generator
 ```
-py generate.py | bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/0/0-5 --core stdin
+py gen.py | bip39scan.exe -a allbtc1.bin -t P2PKH_UNCOMPRESSED --bloom 2048M --save Found.txt -p m/0/0-5 --core entropy.txt
 ```
 ```
-py generate.py | bip39scan.exe -a allbtc1.bin -t P2PKH_UNCOMPRESSED --bloom 2048M --save Found.txt -p m/0/0-5 --core stdin
+py gen.py | bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 --core stdin
+```
+```
+py gen.py | bip39scan.exe -a allbtc3.bin -t P2SH --bloom 2048M --save Found.txt -p m/49'/0'/0'/0/0-9 --core stdin
+```
+```
+py gen.py | bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/0'/0/0-9 --core stdin
+```
+```
+py gen.py | bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 --core stdin
 ```
 
 Example founds:
