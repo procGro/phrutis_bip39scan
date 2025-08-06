@@ -118,7 +118,7 @@ for x in alphanumeric_strings():
 
 ## Mode 9 - BIP32
 Here is a slightly different algorithm, salt.<br>
-![Image](https://github.com/user-attachments/assets/f8c053d4-4a0f-461e-9bf6-34fb8d5ca3c9)<br>
+![Image](https://github.com/user-attachments/assets/c0b06520-c178-4cbf-a801-892cb5f9e53d)<br>
 ```000102030405060708090a0b0c0d0e0f0f0e0d0c0b0a09080706050403020100 -> hmac_sha512 salt = "Bitcoin seed" -> addresses```
 
 ## Python passwords from file -> sha256 + md5 -> entropy
