@@ -616,23 +616,25 @@ In cmd run:
 
 ```cmake bip39scan```
 
+<img width="979" height="556" alt="Image" src="https://github.com/user-attachments/assets/584e0fc1-3ad5-49ef-8498-dca4a3f03538" />
+
 The project files will appear in the folder:<br>
-bip39scan.sln (run this file the project will open)<br>
+bip39scan.sln **<- run this file the project will open**<br>
 bip39scan.vcxproj<br>
 bip39scan.vcxproj.filters<br>
 ..
 
-![brute bip39 phrases](https://github.com/user-attachments/assets/16e2197f-a01e-43ee-a02e-5b6f9e515e15)
+<img width="987" height="750" alt="Image" src="https://github.com/user-attachments/assets/4e7d7095-3842-4538-b1d4-2d6e9f2ebc43" />
 
-OpenSSL should be found. If now, rename c:\program files\OpenSSL-Win64 to OpenSSL and re-run. Note that the libcrypto dll should<br>
+OpenSSL should be found. If now, rename c:\program files\OpenSSL-Win64 to OpenSSL and re-run.<br>
+Note that the libcrypto dll should<br>
 be in PATH or in the current directory when running bip39scan.
 
- 
 Visual Studio 2022 opens. In the top toolbar choose: Release/x64.<br>
 In the "Solution explorer" to the right, right-click bip39scan, choose "build".<br>
 The executable builds in the your-build-directory\Release
  
-![gpu brute bip39 mnemonic](https://github.com/user-attachments/assets/34d6574c-20a3-462c-a857-117ae9ae664f)
+<img width="1303" height="1039" alt="Image" src="https://github.com/user-attachments/assets/b2dcf48f-37e4-4e8d-89f6-f9892f571bc9" />
 
 If necessary run precomp.exe file precomp.bin will be generated
 
