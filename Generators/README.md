@@ -1,3 +1,6 @@
+https://learnmeabitcoin.com/technical/keys/hd-wallets/
+
+
 ## Mode 4 - Reading phrases and passwords as a stream from an external generator
 <img width="954" height="401" alt="Image" src="https://github.com/user-attachments/assets/e7b4980d-09f9-4ed1-b34b-d6fd50d6de42" /><br>
 Accepts everything. Generate passwords, phrases, numbers, seeds, hex...<br>
