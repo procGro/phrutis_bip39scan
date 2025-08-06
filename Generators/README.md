@@ -1,4 +1,5 @@
 ## Mode 4 - Reading phrases and passwords as a stream from an external generator
+<img width="954" height="401" alt="Image" src="https://github.com/user-attachments/assets/e7b4980d-09f9-4ed1-b34b-d6fd50d6de42" /><br>
 Accepts everything. Generate passwords, phrases, numbers, seeds, hex...<br>
 ```passwords -> pbkdf2_hmac_sha512 -> addresses```
 
@@ -55,6 +56,7 @@ for x in alphanumeric_strings():
 ```
 
 ## Mode 6 - Reading entropy stream from external generator
+<img width="681" height="648" alt="Image" src="https://github.com/user-attachments/assets/75f3f580-bb3e-435a-a6e3-d4264de95fdd" /><br>
 Make a random generator with vulnerable entropy 64, 96, 128, 160, 192, 224, 256 bit. <br>
 Search, there are many different randoms on github.
 How does it work?
@@ -113,6 +115,7 @@ for x in alphanumeric_strings():
 
 ## Mode 9 - BIP32
 Here is a slightly different algorithm, salt.<br>
+![Image](https://github.com/user-attachments/assets/f8c053d4-4a0f-461e-9bf6-34fb8d5ca3c9)<br>
 ```000102030405060708090a0b0c0d0e0f0f0e0d0c0b0a09080706050403020100 -> hmac_sha512 salt = "Bitcoin seed" -> addresses```
 
 ## Python passwords from file -> sha256 + md5 -> entropy
