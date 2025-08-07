@@ -127,8 +127,6 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 ```
 
 ## 4. Reading phrases and passwords as a stream from an external generator
-Use ```-m stdin```<br>
-Use your own masks, dictionaries, rules, or other generators<br>
 
 https://github.com/user-attachments/assets/5d930d3d-4224-4316-8f8f-87a721e21ec8
 
