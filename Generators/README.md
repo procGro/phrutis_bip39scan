@@ -99,6 +99,25 @@ while True:
 	print(os.urandom(32).hex())
 ```
 
+```
+import random
+
+def random_hex():
+  rand_num = random.randint(268435456, 4294967296)
+  return hex(rand_num)
+
+while True:
+	random_hex1 = random_hex()
+	random_hex2 = random_hex()
+	random_hex3 = random_hex()
+	random_hex4 = random_hex()
+	random_hex5 = random_hex()
+	random_hex6 = random_hex()
+	random_hex7 = random_hex()
+	random_hex8 = random_hex()
+	
+	print(f"{random_hex1[2:]}{random_hex2[2:]}{random_hex3[2:]}{random_hex4[2:]}{random_hex5[2:]}{random_hex6[2:]}{random_hex7[2:]}{random_hex8[2:]}")
+```
 
 ```
 import string
