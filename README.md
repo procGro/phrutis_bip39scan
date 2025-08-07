@@ -1,12 +1,16 @@
 # bip39scan - New reliase v 4.1.2 (29/07/2025) - $500
-**Update! For those who bought versions 3.2, 4.0.1, the password is the same.**<br>
-**All future updates and versions will have the same password.**
+### 🚀 The fastest brute force mnemonics MultiGPU program in the world! 🚀<br>
 
-### Added:
-1. Mode 8 start and continue from the specified depth. argument ```--depth 123```
-2. Mode 8 - Write the current depth position status to the ```checkpoin.txt```
-3. New mode 9 BIP32 - Reading entropy from file ```--core entropy.txt```
-4. New mode 9 BIP32 - Reading entropy stream from external generator ```--core stdin```
+> [!IMPORTANT]
+> **Update! For those who bought versions 3.2, 4.0.1, the password is the same.**<br>
+> **All future updates and versions will have the same password.**
+
+> [!NOTE]
+>  **v 4.1.2 New add:** 
+> 1. Mode 8 start and continue from the specified depth. argument ```--depth 123```
+> 2. Mode 8 - Write the current depth position status to the ```checkpoin.txt```
+> 3. New mode 9 BIP32 - Reading entropy from file ```--core entropy.txt```
+> 4. New mode 9 BIP32 - Reading entropy stream from external generator ```--core stdin```
 
 
 **MultiGPU program brute force mnemonic phrases**<br>
@@ -22,19 +26,24 @@ Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
 * If you reduce the number of addresses checked, the speed will be higher.
 * The size of the address base does not affect the speed +-5%
 
-The program is sold with the source code! cmake VS2022<br>
-The kit includes ready-made programs for Windows x64 and Linux (Ubuntu and hiveos)<br>
-To purchase, write to telegram ```@phrutis``` or buy from a bot in a group https://t.me/cuda8
+> [!TIP]
+> **The program is sold with the source code! [cmake Visual Studio 2022](https://github.com/phrutis/bip39scan/edit/main/README.md#building-on-windows-vs-2022) or [Linux](https://github.com/phrutis/bip39scan/edit/main/README.md#building-on-ubuntu)**<br>
+> The kit includes ready-made programs for Windows x64 and Linux (Ubuntu and hiveos)<br>
+> To purchase, write to telegram ```@phrutis``` or buy 24/7 from a bot in a group https://t.me/cuda8
 
-## Linux (Ubuntu, hiveos)
-The commands are the same as for Windows.<br>
-You need to add in patch \ before '
-
-```chmod +x bip39scan```<br>
-```./bip39scan -a alleth.bin -t ethereum --bloom 2048M --save Found.txt -p m/44\'/60\'/0\'/0/0-9 ...```
+> [!IMPORTANT]
+> **For Linux (Ubuntu, hiveos)** <br>
+> The commands are the same as for Windows.<br>
+> You need to add in patch \ before '
+> ```chmod +x bip39scan```<br>
+> ```./bip39scan -a alleth.bin -t ethereum --bloom 2048M --save Found.txt -p m/44\'/60\'/0\'/0/0-9 ...```
 
 # Modes:
-## 1. Sequential search words:
+
+<details>
+<summary>1. Sequential search words</summary>
+
+## 1. - Sequential search words:
 ```
 bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 uncover figure script * obscure waste metal quit depend bachelor trust erupt * impose brave leave number rapid oak wealth reopen * noodle tragic
 ```
@@ -56,8 +65,12 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 ```
 You can use your own list of words from a text file for searching. Only words from the [2048 mnemonic words](https://github.com/phrutis/bip39scan/blob/main/bip39.txt) are supported.<br>
 Words in the file must be on a new line. To add a specified list, use ```-w words.txt``` Replace unknown words with *<br>
+</details>
 
-## 2. Random words:
+<details>
+<summary>2. Random search words</summary>
+
+## 2. Random:
 ```
 bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 -w mywordlist.txt -r uncover figure script * obscure waste * quit depend bachelor trust erupt * impose brave leave number rapid oak * reopen * noodle tragic
 ```
@@ -106,6 +119,10 @@ bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/
 ```
 bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 -r * * * * * * * * * * * *
 ```
+</details>
+
+<details>
+<summary>3. Reading phrases and passwords from a text file</summary>
 
 ## 3. Reading phrases and passwords from a text file:
 **The program reads everything from the file: phrases, passwords, passphrases, words, numbers...**<br>
@@ -125,6 +142,10 @@ bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/
 ```
 bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 -m dict.txt
 ```
+</details>
+
+<details>
+<summary>4. Reading phrases and passwords as a stream from an external generator</summary>
 
 ## 4. Reading phrases and passwords as a stream from an external generator
 
@@ -142,8 +163,12 @@ hashcat.exe --stdout -a 3 -1 ?u?l ?1?l?l?l?d?d?d?d | bip39scan.exe -m stdin -a a
 ```
 hashcat.exe --stdout -a 3 -1 ?u?l ?1?l?l?l?d?d?d?d | bip39scan.exe -m stdin -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9
 ```
+</details>
 
-## 5. Reading entropy from file
+<details>
+<summary>5. Reading entropy from a text file</summary>
+
+## 5. Reading entropy from a text file
 Entropy must be in hex format with a new line.<br>
 Depending on the length of the hash, a phrase is created.
 #### Phrase Languages
@@ -177,6 +202,10 @@ bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/
 ```
 bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 -e entropy.txt
 ```
+</details>
+
+<details>
+<summary>6. Reading entropy stream from external generator</summary>
 
 ## 6. Reading entropy stream from external generator
 Now you don't need to modify the program for the next vulnerability.<br>
@@ -218,7 +247,10 @@ py md5.py | bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt 
 ```
 py 256.py | bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 -e stdin
 ```
+</details>
 
+<details>
+<summary>7. Use the built-in generator passwords</summary>
 
 ## 7. Use the built-in generator passwords
 In 2015-2016, there was an online service live.ether where everyone could generate addresses using passwords.<br>
@@ -245,14 +277,18 @@ bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/
 ```
 bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 --alphabet alpha.txt --start a
 ```
-Every 5 minutes the progress status is written to the file status.txt<br>
-To continue, copy the position from status.txt and run --start FromHire1<br>
-If there is a space in the start word, run it like this --start "From Hire 1"<br>
 
 https://github.com/user-attachments/assets/313156e0-d82e-499d-a5c0-644e067d76cd
 
-Important! The symbols from the starting position must be present in the alphabet.<br>
+Every 5 minutes the progress status is written to the file status.txt<br>
+To continue, copy the position from status.txt and run --start FromHire1<br>
+If there is a space in the start word, run it like this --start "From Hire 1"<br>
+> [!IMPORTANT]
+> Important! The symbols from the starting position must be present in the alphabet.
+</details>
 
+<details>
+<summary>8. Vulnerable generator libbitcoin explorer v3.2 (Milk sad vulnerability)</summary>
 
 ## 8. Vulnerable generator libbitcoin explorer v3.2
 More about the vulnerability Milk Sad:<br>
@@ -346,10 +382,18 @@ bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/
 ```
 bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 --bits 128 -l fr
 ```
+</details>
+
+<details>
+<summary>9. BIP32 Reading from file and external generator</summary>
 
 ## 9. BIP32
 This mode uses hmac_sha512 + salt "Bitcoin seed"<br>
 Designed to search for old Bitcoin core and other old BIP32 wallets.<br>
+[You can make a seed generator](https://github.com/hackerschoice/thc-btc-rng-bruteforce) based on the [old and vulnerable openssl-0.9.8c library](https://openssl-library.org/source/old/0.9.x/)<br>
+This [generator](https://github.com/abdielsudiro/openssl-entropy) was used to [create keys and seeds](https://cryptodeeptech.ru/vulnerable-openssl/) for the first Bitcoin clients.<br>
+Satoshi Nakamoto himself generated keys on this generator!
+
 Recommendations:<br>
 1. Using 128 or 256 bit hashes for searching.<br>
 2. Look for Legacy BTC addresses 1... (there were no other types at the time)<br>
@@ -409,7 +453,11 @@ Example founds:
 | L5LxK8WV9wNDemaYBtpEURWi3sHmGsEHpSGmSfahQrreTYKukp9W | 12CL4K2eVqj7hQTix7dM7CVHCkpP17Pry3 | m/0/0 | 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f |
 | KxtynmemHgVetU7rp5MsqSnQ6rvpF7My8DH94Cs7bTH9hwTNn3WL | 15MbJzwHGPq5ETKLBp3yPHoxQ5GUB9avyS | m/0/9 | 000102030405060708090a0b0c0d0e0f0f0e0d0c0b0a09080706050403020100 |
 
+
 ## 10. Coming Soon In Process
+
+<details>
+<summary>Download ready-made address databases for bip39scan</summary>
 
 # Download ready-made address databases for bip39scan
 
@@ -497,8 +545,11 @@ Each address must be on a new line.<br>
 Ethereum addresses must be 0x...<br>
 Bitcoin addresses 1.., 3.., bc.. (New long addresses bc.. does not accept)
 
-# FAQ
 
+<details>
+<summary>FAQ question-answer</summary>
+ 
+# FAQ
 **The program did not find my test password from the file.**
 
 Do not use small dictionaries for the test.<br>
@@ -583,7 +634,11 @@ If you do everything correctly, you will find test addresses<hr>
 When you search with binary database the program does not know what coin you are looking for.<br>
 BE SURE TO SPECIFY - t typecoin
 <hr>
+</details>
 
+<details>
+<summary>bip39scan.exe -h (help page)</summary>
+ 
 ## bip39scan.exe -h
 ```
 C:\Users\User\Downloads\bip39scan-win64>bip39scan -h
@@ -637,9 +692,12 @@ Example:
    > bip39scan -a addresses.txt -p m/0'/0-1 -m mnemo.txt
    > bip39scan -a addresses.txt -p m/0'/0-1 --alphabet characters.txt --start kaaaaaaa
 ```
+</details>
 
+<details>
+<summary>Building on Windows Visual Studio 2022</summary>
+ 
 ## Building on Windows VS-2022
-
 Install cmake 3.30+ from this link: https://github.com/Kitware/CMake/releases/download/v3.31.8/cmake-3.31.8-windows-x86_64.msi<br>
 Or find another version on this page: https://cmake.org/download/<br>
 
@@ -677,7 +735,11 @@ The executable builds in the your-build-directory\Release
 <img width="1303" height="1039" alt="Image" src="https://github.com/user-attachments/assets/b2dcf48f-37e4-4e8d-89f6-f9892f571bc9" />
 
 If necessary run precomp.exe file precomp.bin will be generated
+</details>
 
+<details>
+<summary>Building on Ubuntu</summary>
+ 
 ## Building on Ubuntu:
 
 Below is detailed instruction with bash commands required to build bip39scan.<br>
@@ -757,3 +819,4 @@ $ ../cmake-3.28.0-linux-x86_64/bin/cmake ../bip39scan<br>
 where ../bip39scan is the source code directory<br>
 make the project<br>
 $ make bip39scan
+</details>
