@@ -43,7 +43,7 @@ Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
 <details>
 <summary>1. Sequential search words</summary>
 
-## 1. - Sequential search words:
+## 1. Sequential search words:
 ```
 bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 uncover figure script * obscure waste metal quit depend bachelor trust erupt * impose brave leave number rapid oak wealth reopen * noodle tragic
 ```
@@ -70,7 +70,7 @@ Words in the file must be on a new line. To add a specified list, use ```-w word
 <details>
 <summary>2. Random search words</summary>
 
-## 2. Random:
+## 2. Random search words:
 ```
 bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 -w mywordlist.txt -r uncover figure script * obscure waste * quit depend bachelor trust erupt * impose brave leave number rapid oak * reopen * noodle tragic
 ```
