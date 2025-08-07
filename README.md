@@ -583,7 +583,7 @@ Changing the program for each generator is not rational.<br>
 It's easier to find a phrase by vulnerability than to endlessly brute-force emptiness.<br>
 [**Examples of generators**](https://github.com/phrutis/bip39scan/blob/main/Generators/README.md)<hr>
 
-**I don't understand what entropy is.???**
+**I don't understand what entropy is?**
 
 [SEE HIRE](https://learnmeabitcoin.com/technical/keys/hd-wallets/mnemonic-seed/)<hr>
 
