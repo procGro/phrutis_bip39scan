@@ -39,7 +39,7 @@ Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
 > ```./bip39scan -a alleth.bin -t ethereum --bloom 2048M --save Found.txt -p m/44\'/60\'/0\'/0/0-9 ...```
 
 ## Modes:
-
+⬇️ Click to open section ⬇️
 <details>
 <summary><b>1. Sequential search words</b></summary>
 ## 1. Sequential search words:
