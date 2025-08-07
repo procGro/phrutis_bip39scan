@@ -585,7 +585,7 @@ It's easier to find a phrase by vulnerability than to endlessly brute-force empt
 
 **I don't understand what entropy is.???**
 
-[SEE HIRE](https://learnmeabitcoin.com/technical/keys/hd-wallets/)<hr>
+[SEE HIRE](https://learnmeabitcoin.com/technical/keys/hd-wallets/mnemonic-seed/)<hr>
 
 **My program won't start - bloom memory error...?**
 
