@@ -41,8 +41,7 @@ Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
 ## Modes:
 
 <details>
-<summary>1. Sequential search words</summary>
-
+<summary><b>1. Sequential search words</b></summary>
 ## 1. Sequential search words:
 ```
 bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 uncover figure script * obscure waste metal quit depend bachelor trust erupt * impose brave leave number rapid oak wealth reopen * noodle tragic
@@ -68,7 +67,7 @@ Words in the file must be on a new line. To add a specified list, use ```-w word
 </details>
 
 <details>
-<summary>2. Random search words</summary>
+<summary><b>2. Random search words</b></summary>
 
 ## 2. Random search words:
 ```
@@ -122,7 +121,7 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 </details>
 
 <details>
-<summary>3. Reading phrases and passwords from a text file</summary>
+<summary><b>3. Reading phrases and passwords from a text file</b></summary>
 
 ## 3. Reading phrases and passwords from a text file:
 **The program reads everything from the file: phrases, passwords, passphrases, words, numbers...**<br>
@@ -145,7 +144,7 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 </details>
 
 <details>
-<summary>4. Reading phrases and passwords as a stream from an external generator</summary>
+<summary><b>4. Reading phrases and passwords as a stream from an external generator</b></summary>
 
 ## 4. Reading phrases and passwords as a stream from an external generator
 
@@ -166,7 +165,7 @@ hashcat.exe --stdout -a 3 -1 ?u?l ?1?l?l?l?d?d?d?d | bip39scan.exe -m stdin -a a
 </details>
 
 <details>
-<summary>5. Reading entropy from a text file</summary>
+<summary><b>5. Reading entropy from a text file</b></summary>
 
 ## 5. Reading entropy from a text file
 Entropy must be in hex format with a new line.<br>
@@ -205,7 +204,7 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 </details>
 
 <details>
-<summary>6. Reading entropy stream from external generator</summary>
+<summary><b>6. Reading entropy stream from external generator</b></summary>
 
 ## 6. Reading entropy stream from external generator
 Now you don't need to modify the program for the next vulnerability.<br>
@@ -250,7 +249,7 @@ py 256.py | bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.t
 </details>
 
 <details>
-<summary>7. Use the built-in generator passwords</summary>
+<summary><b>7. Use the built-in generator passwords</b></summary>
 
 ## 7. Use the built-in generator passwords
 In 2015-2016, there was an online service live.ether where everyone could generate addresses using passwords.<br>
@@ -288,7 +287,7 @@ If there is a space in the start word, run it like this --start "From Hire 1"<br
 </details>
 
 <details>
-<summary>8. Vulnerable generator libbitcoin explorer v3.2 (Milk sad vulnerability)</summary>
+<summary><b>8. Vulnerable generator libbitcoin explorer v3.2 (Milk sad vulnerability)</b></summary>
 
 ## 8. Vulnerable generator libbitcoin explorer v3.2
 More about the vulnerability Milk Sad:<br>
@@ -385,7 +384,7 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 </details>
 
 <details>
-<summary>9. BIP32 Reading from file and external generator</summary>
+<summary><b>9. BIP32 Reading from file and external generator</b></summary>
 
 ## 9. BIP32
 This mode uses hmac_sha512 + salt "Bitcoin seed"<br>
@@ -457,7 +456,7 @@ Example founds:
 ## Other sections:
 
 <details>
-<summary>Download ready-made address databases for bip39scan</summary>
+<summary><b>Download ready-made address databases for bip39scan</b></summary>
 
 # Download ready-made address databases for bip39scan
 
@@ -547,7 +546,7 @@ Bitcoin addresses 1.., 3.., bc.. (New long addresses bc.. does not accept)
 </details>
 
 <details>
-<summary>FAQ question-answer</summary>
+<summary><b>FAQ question-answer</b></summary>
  
 # FAQ
 **The program did not find my test password from the file.**
@@ -637,7 +636,7 @@ BE SURE TO SPECIFY - t typecoin
 </details>
 
 <details>
-<summary>bip39scan.exe -h (help page)</summary>
+<summary><b>bip39scan.exe -h (help page)</b></summary>
  
 ## bip39scan.exe -h
 ```
@@ -695,7 +694,7 @@ Example:
 </details>
 
 <details>
-<summary>Building on Windows Visual Studio 2022</summary>
+<summary><b>Building on Windows Visual Studio 2022</b></summary>
  
 ## Building on Windows VS-2022
 Install cmake 3.30+ from this link: https://github.com/Kitware/CMake/releases/download/v3.31.8/cmake-3.31.8-windows-x86_64.msi<br>
@@ -738,7 +737,7 @@ If necessary run precomp.exe file precomp.bin will be generated
 </details>
 
 <details>
-<summary>Building on Ubuntu</summary>
+<summary><b>Building on Ubuntu</b></summary>
  
 ## Building on Ubuntu:
 
