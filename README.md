@@ -38,7 +38,7 @@ Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
 > ```chmod +x bip39scan```<br>
 > ```./bip39scan -a alleth.bin -t ethereum --bloom 2048M --save Found.txt -p m/44\'/60\'/0\'/0/0-9 ...```
 
-# Modes:
+## Modes:
 
 <details>
 <summary>1. Sequential search words</summary>
@@ -452,9 +452,9 @@ Example founds:
 | L4qs8CTqn4ZY1gJfEgPc1vFpAQNx8wNuF5o9dbM2HhtWnZQKg7an | 1EnXumNo7pyybB9Ntmfsa6S5WbAjsiwLkp | m/3 | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 |
 | L5LxK8WV9wNDemaYBtpEURWi3sHmGsEHpSGmSfahQrreTYKukp9W | 12CL4K2eVqj7hQTix7dM7CVHCkpP17Pry3 | m/0/0 | 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f |
 | KxtynmemHgVetU7rp5MsqSnQ6rvpF7My8DH94Cs7bTH9hwTNn3WL | 15MbJzwHGPq5ETKLBp3yPHoxQ5GUB9avyS | m/0/9 | 000102030405060708090a0b0c0d0e0f0f0e0d0c0b0a09080706050403020100 |
+</details>
 
-
-## 10. Coming Soon In Process
+## Other sections:
 
 <details>
 <summary>Download ready-made address databases for bip39scan</summary>
@@ -544,7 +544,7 @@ https://routescan.io/dumps?page=2&nexttoken=undefined<br>
 Each address must be on a new line.<br>
 Ethereum addresses must be 0x...<br>
 Bitcoin addresses 1.., 3.., bc.. (New long addresses bc.. does not accept)
-
+</details>
 
 <details>
 <summary>FAQ question-answer</summary>
