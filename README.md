@@ -146,6 +146,25 @@ hashcat.exe --stdout -a 3 -1 ?u?l ?1?l?l?l?d?d?d?d | bip39scan.exe -m stdin -a a
 ## 5. Reading entropy from file
 Entropy must be in hex format with a new line.<br>
 Depending on the length of the hash, a phrase is created.
+#### Phrase Languages
+If not specified, the default will be en<br>
+```-l en``` English<br>
+```-l es``` Spanish<br>
+```-l fr``` French<br>
+```-l it``` Italian<br>
+```-l ja``` Japanese<br>
+```-l cs``` Czech<br>
+```-l ru``` Russian<br>
+```-l uk``` Ukrainian<br>
+```-l ko``` Korean<br>
+```-l po``` Portuguese<br>
+```-l tu``` Turkish<br>
+```-l zh_Hans``` Chinese (Simplified)<br>
+```-l zh_Hant``` Chinese (Traditional)<br>
+#### Special lang word NFKD (Normalization Form KD):
+```-l ja-nfkd``` Japanese<br>
+```-l es-nfkd``` Spanish<br>
+
 ```
 bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 -e entropy.txt
 ```
@@ -165,6 +184,25 @@ Create your own generators based on Python or C++ code.<br>
 There are many vulnerable random generators on the Internet (github).<br>
 Print the entropy in hex format, done.<br>
 The program will determine the length of the hex and create a phrase of the required length itself.
+#### Phrase Languages
+If not specified, the default will be en<br>
+```-l en``` English<br>
+```-l es``` Spanish<br>
+```-l fr``` French<br>
+```-l it``` Italian<br>
+```-l ja``` Japanese<br>
+```-l cs``` Czech<br>
+```-l ru``` Russian<br>
+```-l uk``` Ukrainian<br>
+```-l ko``` Korean<br>
+```-l po``` Portuguese<br>
+```-l tu``` Turkish<br>
+```-l zh_Hans``` Chinese (Simplified)<br>
+```-l zh_Hant``` Chinese (Traditional)<br>
+#### Special lang word NFKD (Normalization Form KD):
+```-l ja-nfkd``` Japanese<br>
+```-l es-nfkd``` Spanish<br>
+
 
 https://github.com/user-attachments/assets/df8a0774-307a-46e0-ac01-b9123aad5c50
 
@@ -273,21 +311,25 @@ bip39scan.exe -a allbc.bin -t bech32 --bloom 2048M --save Found.txt -p m/84'/0'/
 ```
 bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/60'/0'/0/0-9 --bits 128
 ```
-### Phrase Languages
+#### Phrase Languages
 If not specified, the default will be en<br>
-```-l en``` English phrases<br>
-```-l es``` Spanish phrases<br>
-```-l fr``` French phrases<br>
-```-l it``` Italian phrases<br>
-```-l ja``` Japanese phrases<br>
-```-l cs``` Czech phrases<br>
-```-l ru``` Russian phrases<br>
-```-l uk``` Ukrainian phrases<br>
+```-l en``` English<br>
+```-l es``` Spanish<br>
+```-l fr``` French<br>
+```-l it``` Italian<br>
+```-l ja``` Japanese<br>
+```-l cs``` Czech<br>
+```-l ru``` Russian<br>
+```-l uk``` Ukrainian<br>
+```-l ko``` Korean<br>
+```-l po``` Portuguese<br>
+```-l tu``` Turkish<br>
 ```-l zh_Hans``` Chinese (Simplified)<br>
 ```-l zh_Hant``` Chinese (Traditional)<br>
-```-l ko``` Korean phrases<br>
-```-l po``` Portuguese phrases<br>
-```-l tu``` Turkish phrases<br>
+#### Special lang word NFKD (Normalization Form KD):
+```-l ja-nfkd``` Japanese<br>
+```-l es-nfkd``` Spanish<br>
+
 <img width="978" height="325" alt="Image" src="https://github.com/user-attachments/assets/c3afa204-81df-49a4-9f7f-8b5e17bbdbad" /><br>
 
 <img width="976" height="370" alt="Image" src="https://github.com/user-attachments/assets/e787746a-1646-428c-9865-d62ff85baf66" />
