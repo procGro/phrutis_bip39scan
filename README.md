@@ -429,7 +429,7 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 
  ## Receiving entropy from an external generator
 ```
-py gen.py | bip39scan.exe -a allbtc1.bin -t P2PKH_UNCOMPRESSED --bloom 2048M --save Found.txt -p m/0/0-5 --core entropy.txt
+py gen.py | bip39scan.exe -a allbtc1.bin -t P2PKH_UNCOMPRESSED --bloom 2048M --save Found.txt -p m/0/0-5 --core stdin
 ```
 ```
 py gen.py | bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 --core stdin
