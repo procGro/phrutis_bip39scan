@@ -391,10 +391,13 @@ This mode uses hmac_sha512 + salt "Bitcoin seed"<br>
 Designed to search for old Bitcoin core and other old BIP32 wallets.<br>
 [You can make a seed generator](https://github.com/hackerschoice/thc-btc-rng-bruteforce) based on the [old and vulnerable openssl-0.9.8c library](https://openssl-library.org/source/old/0.9.x/)<br>
 This [generator](https://github.com/abdielsudiro/openssl-entropy) was used to [create keys and seeds](https://cryptodeeptech.ru/vulnerable-openssl/) for the first Bitcoin clients.<br>
-Satoshi Nakamoto himself generated keys on this generator!
+Satoshi Nakamoto himself generated keys on this generator!<br>
+Ex. from founds: **50 BTC (19 jan 2009)**<br>
+Adr: [1NChfewU45oy7Dgn51HwkBFSixaTnyakfj](https://blockchair.com/ru/bitcoin/address/1NChfewU45oy7Dgn51HwkBFSixaTnyakfj/events/bitcoin-main/1?order=#app-gallery)<br>
+Key: 5KGLRScL6BqRkWnB8kTtoJmj21GT2W4KHpHJ2AA6vewuqM3tFVM
 
 Recommendations:<br>
-1. Using 128 or 256 bit hashes for searching.<br>
+1. Using 256 bit hashes for searching.<br>
 2. Look for Legacy BTC addresses 1... (there were no other types at the time)<br>
 3. Addresses 1... were all UNCOMPRESSED before March 2012!<br>
 These are large miner addresses that received 50 BTC per block.<br>
