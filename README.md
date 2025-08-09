@@ -590,6 +590,13 @@ It's easier to find a phrase by vulnerability than to endlessly brute-force empt
 
 [SEE HIRE](https://learnmeabitcoin.com/technical/keys/hd-wallets/mnemonic-seed/)<hr>
 
+**bro, write me a generator so that it spins like this and then like that...**<br>
+**I'm a newbie, I don't understand programming, help.**
+
+For these purposes, find an AI bot.<br>
+Now bots have become very smart, they write programs and scripts.<br>
+Write to the bot what you need to do, spin and how.<hr>
+
 **My program won't start - bloom memory error...?**
 
 Take a screenshot of the program window and send it to me.
