@@ -384,3 +384,70 @@ with open("file.txt", "r", encoding='utf_8_sig', errors='ignore') as f:
            	   	keypair6 = hashlib.shake_256(line.encode()).hexdigest(32)
            	   	print(keypair6)
 ```
+
+```
+import random
+import time
+from multiprocessing import Pool
+import coincurve
+import hashlib
+import base58
+from rich.console import Console
+
+class SecureRandom:
+    def __init__(self, seed):
+        self.rng_state = None
+        self.rng_pool = []
+        self.rng_pptr = 0
+        self.rng_psize = 32
+        random.seed(seed)
+        for _ in range(self.rng_psize):
+            self.rng_pool.append(random.randint(0, 255))
+        self.rng_pptr = 0
+
+    def rng_get_byte(self):
+        if self.rng_pptr >= len(self.rng_pool):
+            self.rng_pptr = 0
+            self.rng_pool = [random.randint(0, 255) for _ in range(self.rng_psize)]
+        byte = self.rng_pool[self.rng_pptr]
+        self.rng_pptr += 1
+        return byte
+
+    def rng_get_bytes(self, length):
+        result = bytearray(length)
+        for i in range(length):
+            result[i] = self.rng_get_byte()
+        return result
+        
+def custom_private_key_generator(rng_simulator=None):
+    rng = SecureRandom()
+    private_key_bytes = rng.rng_get_bytes(32)
+    private_key_hex = private_key_bytes.hex()
+    return private_key_hex
+
+
+def generate_hex(seed):
+
+    current_seed = seed
+    secure_rng = SecureRandom(current_seed)
+
+    for i in range(2000000000):
+        # Generate a random private key in hexadecimal format
+        random_bytes = secure_rng.rng_get_bytes(32)
+        hex_representation = random_bytes.hex()
+        private_key = hex_representation
+
+        current_seed += 1
+        print(private_key)
+
+if __name__ == '__main__':
+
+    num_processes = 1
+    
+    start_time = time.time()
+
+    with Pool(num_processes) as pool:
+        # Define the range of seeds for each process, March 1, 2014 = 1393635661000
+        seeds = range(1393635661000, 1393635661000 + num_processes)
+        pool.map(generate_hex, seeds)
+```
