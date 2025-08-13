@@ -1,4 +1,4 @@
-# bip39scan - New reliase v 4.1.2 (29/07/2025) - $500
+# bip39scan - New reliase v 4.1.2 (29/07/2025) - ~~$500~~ -> $200
 ### 🚀 The fastest brute force mnemonics MultiGPU program in the world! 🚀<br>
 
 > [!IMPORTANT]
