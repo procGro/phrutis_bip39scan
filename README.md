@@ -575,7 +575,7 @@ If you do not specify the starting seed, the default seed 0 will be used<br>
 ```-r * * * * * * * * * * * *``` <br>
 **You will go through all the time from the beginning (previously passed).**
 
-**In versions: 4.0.1, 4.12, 5.0.1 you do not need to do this!**<br>
+**In versions: (4.0.1), (4.1.2), (5.0.1) you do not need to do this!**<br>
 The program itself randomizes the starting seed<hr>
 
 **How to change the derivation in a patch?**
