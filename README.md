@@ -70,8 +70,6 @@ Words in the file must be on a new line. To add a specified list, use ```-w word
 <summary><b>2. Random search words</b></summary>
 
 ## 2. Random search words:
-**For older versions below 4.0.1 you need to specify seed!** <br>
-Read the question and answer at the bottom of the page<br>
 
 ```
 bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 -w mywordlist.txt -r uncover figure script * obscure waste * quit depend bachelor trust erupt * impose brave leave number rapid oak * reopen * noodle tragic
@@ -109,6 +107,9 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 ```
 
 **For full random, add only stars**<br>
+**For older versions below 4.0.1 you need to specify seed!** <br>
+Read the question and answer at the bottom of the page<br>
+
 ```
 bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 -r * * * * * * * * * * * *
 ```
