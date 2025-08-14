@@ -42,6 +42,7 @@ Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
 ⬇️ Click to open section ⬇️
 <details>
 <summary><b>1. Sequential search words</b></summary>
+ 
 ## 1. Sequential search words:
 ```
 bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 uncover figure script * obscure waste metal quit depend bachelor trust erupt * impose brave leave number rapid oak wealth reopen * noodle tragic
