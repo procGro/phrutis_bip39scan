@@ -22,6 +22,7 @@ Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
 |----------|----------|----------|----------|-------------|--------------|
 | **RTX 5090** | **250M** mnemo/s	| **63M** mnemo/s	| **17M** mnemo/s | 700k entropy/s | **10M** entropy/s |
 | **RTX 4090** | **160M** mnemo/s | **38M** mnemo/s	| **11M** mnemo/s | 450k entropy/s | **6M** entropy/s |
+* The program supports all CUDA cards GeForce (CMP, GTX, RTX...)
 * The speed is indicated when checking 10 addresses in each phrase.
 * If you reduce the number of addresses checked, the speed will be higher.
 * The size of the address base does not affect the speed +-5%
