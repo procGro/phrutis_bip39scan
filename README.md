@@ -28,7 +28,7 @@ Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
 * The size of the address base does not affect the speed +-5%
 
 > [!TIP]
-> **The program is sold with the source code! [cmake Visual Studio 2022](https://github.com/phrutis/bip39scan/main/README.md#building-on-windows-vs-2022) or [Linux](https://github.com/phrutis/bip39scan/main/README.md#building-on-ubuntu)**<br>
+> **The program is sold with the source code! [cmake Visual Studio 2022](https://github.com/phrutis/bip39scan/tree/main?tab=readme-ov-file#building-on-windows-vs-2022) or [Linux](https://github.com/phrutis/bip39scan/tree/main?tab=readme-ov-file#building-on-ubuntu)**<br>
 > The kit includes ready-made programs for Windows x64 and Linux (Ubuntu and hiveos)<br>
 > To purchase, write to telegram ```@phrutis``` or buy 24/7 from a bot in a group https://t.me/cuda8
 
