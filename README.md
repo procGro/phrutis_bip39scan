@@ -1,4 +1,4 @@
-# bip39scan - New reliase v 4.1.2 (29/07/2025) - ~~$500~~ -> $200
+# bip39scan - New reliase v 5.0.1 (15/08/2025) - ~~$500~~ -> $200
 ### 🚀 The fastest brute force mnemonics MultiGPU program in the world! 🚀<br>
 
 > [!IMPORTANT]
@@ -6,29 +6,32 @@
 > **All future updates and versions will have the same password.**
 
 > [!NOTE]
->  **v 4.1.2 New add:** 
-> 1. Mode 8 start and continue from the specified depth. argument ```--depth 123```
-> 2. Mode 8 - Write the current depth position status to the ```checkpoin.txt```
-> 3. New mode 9 BIP32 - Reading entropy from file ```--core entropy.txt```
-> 4. New mode 9 BIP32 - Reading entropy stream from external generator ```--core stdin```
-
+>  **v 5.0.1 New add:**
+> 
+> **New mode - Brute force passwords from [bip32.org](http://bip32.org) (working for over 12 years)**
+> 1. Mode 10 BIP32 - Reading passwords from file ```--hmac pass.txt```
+> 2. Mode 10 BIP32 - Reading passwords stream from external generator ```--hmac stdin```
+> 3. Mode 10 BIP32 - Reading passwords from file ```--hmac1 pass.txt```
+> 4. Mode 10 BIP32 - Reading passwords stream from external generator ```--hmac1 stdin```
+> 5. Mode 10 BIP32 - Number of password iterations for hmac_sha256 ```--iterations 50000```
+> 6. Fixed -e mode (5, 6)
 
 **MultiGPU program brute force mnemonic phrases**<br>
+Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
+The program supports all CUDA cards GeForce (CMP, GTX, RTX...)<br>
 Supports all patches, ETH, BTC, DOGE, LITE, dash, BTC Cash, addresses and ETH tokens.<br>
-Automatically detects the coin type based on the given patch. You can specify the type manually.<br> 
-Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br> 
-
+Automatically detects the coin type based on the given patch. You can specify the type manually.
+ 
 | GPU card | 24 words | 18 words | 12 words | other brute | Mode 9 BIP32 |
 |----------|----------|----------|----------|-------------|--------------|
 | **RTX 5090** | **250M** mnemo/s	| **63M** mnemo/s	| **17M** mnemo/s | 700k entropy/s | **10M** entropy/s |
 | **RTX 4090** | **160M** mnemo/s | **38M** mnemo/s	| **11M** mnemo/s | 450k entropy/s | **6M** entropy/s |
-* The program supports all CUDA cards GeForce (CMP, GTX, RTX...)
 * The speed is indicated when checking 10 addresses in each phrase.
 * If you reduce the number of addresses checked, the speed will be higher.
 * The size of the address base does not affect the speed +-5%
 
 > [!TIP]
-> **The program is sold with the source code! [cmake Visual Studio 2022](https://github.com/phrutis/bip39scan/tree/main?tab=readme-ov-file#building-on-windows-vs-2022) or [Linux](https://github.com/phrutis/bip39scan/tree/main?tab=readme-ov-file#building-on-ubuntu)**<br>
+> **The program is sold with the source code! [cmake Visual Studio 2022](https://github.com/phrutis/bip39scan/edit/main/README.md#building-on-windows-vs-2022) or [Linux](https://github.com/phrutis/bip39scan/edit/main/README.md#building-on-ubuntu)**<br>
 > The kit includes ready-made programs for Windows x64 and Linux (Ubuntu and hiveos)<br>
 > To purchase, write to telegram ```@phrutis``` or buy 24/7 from a bot in a group https://t.me/cuda8
 
@@ -37,13 +40,13 @@ Supports brute force 6, 9, 12, 15, 18, 21, 24 words<br>
 > The commands are the same as for Windows.<br>
 > You need to add in patch \ before '
 > ```chmod +x bip39scan```<br>
-> ```./bip39scan -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44\'/60\'/0\'/0/0-9 ...```
+> ```./bip39scan -a alleth.bin -t ethereum --bloom 2048M --save Found.txt -p m/44\'/60\'/0\'/0/0-9 ...```
 
 ## Modes:
 ⬇️ Click to open section ⬇️
 <details>
 <summary><b>1. Sequential search words</b></summary>
- 
+
 ## 1. Sequential search words:
 ```
 bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 uncover figure script * obscure waste metal quit depend bachelor trust erupt * impose brave leave number rapid oak wealth reopen * noodle tragic
@@ -72,7 +75,6 @@ Words in the file must be on a new line. To add a specified list, use ```-w word
 <summary><b>2. Random search words</b></summary>
 
 ## 2. Random search words:
-
 ```
 bip39scan.exe --save Found.txt -a btc1.txt -t P2PKH -p m/44'/0'/0'/0/0-9 -w mywordlist.txt -r uncover figure script * obscure waste * quit depend bachelor trust erupt * impose brave leave number rapid oak * reopen * noodle tragic
 ```
@@ -111,7 +113,6 @@ bip39scan.exe -a alleth.bin -t ethereum --bloom 4096M --save Found.txt -p m/44'/
 **For full random, add only stars**<br>
 **For older versions below 4.0.1 you need to specify seed!** <br>
 Read the question and answer at the bottom of the page<br>
-
 ```
 bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/44'/0'/0'/0/0-9 -r * * * * * * * * * * * *
 ```
@@ -462,6 +463,65 @@ Example founds:
 | KxtynmemHgVetU7rp5MsqSnQ6rvpF7My8DH94Cs7bTH9hwTNn3WL | 15MbJzwHGPq5ETKLBp3yPHoxQ5GUB9avyS | m/0/9 | 000102030405060708090a0b0c0d0e0f0f0e0d0c0b0a09080706050403020100 |
 </details>
 
+<details>
+<summary><b>10. BIP32 Brute bip32.org passwords</b></summary>
+
+## 10. BIP32 Brute bip32.org passwords
+
+The bip32.org website has been generating Bitcoin addresses from passwords for over 12 years.<br>
+Protection against password brute-force is implemented in the form of 50,000 iterations of the hmac_sha256 password.<br>
+This protection significantly slows down the brute-force.<br>
+A modern processor i9 (one core) processes about 6 passwords per second.<br>
+Which makes brute-force impossible. That's why no one brute-forces these passwords.<br>
+**The fastest program in the world, bip39scan, processes 60,000 passwords per second on RTX 4090**.<br>
+Thus, there is a good chance of finding forgotten coins from 10-14 years ago.<br>
+Algo: ```password -> hmac_sha256 (iterations pass) -> hmac_sha512 + salt "Bitcoin seed" -> seed-> ...```<br>
+
+**Two options for use:**<br>
+```--hmac --iterations 50000```<br>
+This option takes 1000000 passwords and checks all iterations of the password up to the specified one.<br>
+Then takes the next 1 million passwords... (slow search).
+
+```--hmac1 --iterations 50000``` <br>
+Checks only the specified password iteration (as in bip32.org).
+
+**Patches:**<br>
+m/0-9<br>
+m/0-1'/0-9<br>
+m/0-1'/0-3/0-9<br>
+
+ ## Reading passwords from file
+```
+bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/0-9 --hmac1 passwords.txt --iterations 50000
+```
+```
+bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/0-1'/0-9 --hmac1 passwords.txt --iterations 50000
+```
+
+ ## Receiving entropy from an external generator
+```
+py gen.py | bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/0-9 --hmac1 stdint --iterations 50000
+```
+```
+py gen.py | bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/0-1'/0-9 --hmac1 stdint --iterations 50000
+```
+
+**Example FOUNDS:**
+
+| private key | Address | Path | Password |
+|----------|---------------|----------------|----------------|
+| KwDqbpxmCjZoWr9EEZ78wqXp14cEH6T4BcqYYhJ825S7PnZpQBjY | 14n1jQ5qYGk3FMY2MVB75C2kUYXD1bs8WJ | m/2 | 7Gusthedog |
+| L39kSg5L2pnK3ZHnAQFSidDC5qWXGijQnEi8XjtsUn8k832oZKTT | 1Fq97SgwfLeS27uh6z8gvx8p7Nn4yUzxHm | m/0'/0 | nati1234 |
+| L3C3XXFeaNabY1kPce25KQfCU3eVCSRxhrwVS3mfj3vfZqdJPPpB | 1NyifCBG4xVZ45uqc1WWixkWGEDgWQFVWL | m/0'/0 | whiteknight |
+| Kwvd9EeCTX67ANa6YNvdiiWxxCUCKFqpeFwst52cbcARfEjTNLod | 17gion6wVJaov65V2RhwwswGUhyARrVf9 | m/0'/0 | sunshine11 |
+| L54JNkWKsBXgcrgM8YK9zNdksx3rjATMfeJJ4cYhqY2bfxcdJAKh | 1DTjnc1dW3okt5vcGqSa7DSX3JevbEnk5a | m/0 | yeahyeahyeah |
+| KzCtf2HjZu6ECpoiVajierAvyUKZv1Nku7MKtZsDmuHBLMShMMiK | 1FQuvsgTxm6FaynFRWNRP6kGxUHHQiL33Q | m/8 | yeahyeahyeah |
+| KzTk56rMTNfXybLNij6g1mVbGkfjK2k8AcfoxSfaRWvAmNjPZYDL | 14SSV31RNNYaDcjw5JB5oHPq6jyg9ssc9H | m/0'/0/8 | password |
+| L1TeQekx21Ma8p1w8J46dBMgzWiVzANGSip9sxtBHSBuzxYBSykD | 1782pxsaZczh7tdgjujZVuhB7Dj5z12GdA | m/0'/0/9 | password |
+
+</details>
+
+
 ## Other sections:
 
 <details>
@@ -672,7 +732,7 @@ BE SURE TO SPECIFY - t typecoin
 ## bip39scan.exe -h
 ```
 C:\Users\User\Downloads\bip39scan-win64>bip39scan -h
-bip39scan v 4.1.2 (phrutis modification 29/07/2025)
+bip39scan v 5.0.1 (phrutis modification 15/08/2025)
 Bruteforce bip39 mnemonics
 Syntax: bip39scan [OPTIONS] [MNEMO]
 OPTIONS:
@@ -712,6 +772,9 @@ OPTIONS:
                           Each word should be a valid BIP39 word in the specified language (--lang).
         --dump            Dumps valid mnemonics.
         --core            BIP32 reading from file and receiving stream from external generator.
+        --hmac FILE       Read passwords from the file, one per line, and use them as HMAC keys to generate BIP39 seeds.
+        --hmac1 FILE      Same as --hmac but doesn't check intermediate iterations.
+        --iterations NUM  In the --hmac mode: number of hmac iterations to perform.
         --depth           Starting range of generator initialization depth
     -r, --random          Randomize the mnemonics generated with MNEMO templates (see below).
     MNEMO                 Mnemonic template, up to 24 words. Can contain placeholders '*'. If less than
