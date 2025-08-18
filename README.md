@@ -640,6 +640,22 @@ If you do not specify the starting seed, the default seed 0 will be used<br>
 **In versions: (4.0.1), (4.1.2), (5.0.1) you do not need to do this!**<br>
 The program itself randomizes the starting seed<hr>
 
+**What is the difference between --hmac and --hmac1 in mode 10?**
+
+``--hmac`` checks addresses in each password iteration.<br>
+You specified 50,000 iterations.<br>
+The program takes 1,000,000 passwords<br>
+It will check the seed in the first iteration, in the second ... the 50,000th.
+
+In total, for one password it will generate 50k seeds with address checking.<br>
+It needs to check 1,000,000 x 50,000 = 50,000,000,000 seeds.<br>
+Your speed is 5M - you need 2 hours 4:45 minutes to check
+
+``--hmac1`` checks addresses only in the specified iteration.<br>
+It takes 1,000,000 passwords, makes iterations and does not check the seed until the specified one.<br>
+Your speed is 60k<br>
+1000000/60000 = it will take you 15 seconds to check<hr>
+
 **How to change the derivation in a patch?**
 
 You can set a non-standard patch derivation at your discretion:<br>
