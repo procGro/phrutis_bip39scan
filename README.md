@@ -649,7 +649,7 @@ It will check the seed in the first iteration, in the second ... the 50,000th.
 
 In total, for one password it will generate 50k seeds with address checking.<br>
 It needs to check 1,000,000 x 50,000 = 50,000,000,000 seeds.<br>
-Your speed is 5M - you need 2 hours 4:45 minutes to check
+Your speed is 5M - you need 2 hours 45 minutes to check
 
 ``--hmac1`` checks addresses only in the specified iteration.<br>
 It takes 1,000,000 passwords, makes iterations and does not check the seed until the specified one.<br>
