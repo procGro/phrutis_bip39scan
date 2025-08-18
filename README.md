@@ -498,7 +498,7 @@ bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/0-9 --
 bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/0-1'/0-9 --hmac1 passwords.txt --iterations 50000
 ```
 
- ## Receiving entropy from an external generator
+ ## Receiving passwords from an external generator
 ```
 py gen.py | bip39scan.exe -a allbtc1.bin -t P2PKH --bloom 2048M --save Found.txt -p m/0-9 --hmac1 stdin --iterations 50000
 ```
