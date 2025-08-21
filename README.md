@@ -535,42 +535,42 @@ GETH (Goerli), GNOSIS, IOTX, LINEA, MOONBEAM, MOONRIVER, OPBNB, OPTIMISM, POLYGO
 **Doesn't start on 8 GB cards! The database fits on a 12 GB card or more.** <br>
 **To run you need 32 GB of RAM (if you don't have that much, you can use the swap file)** <br>
 Add these arguments to run ```--bloom 4096M -t ethereum```<br>
-Download http://89.23.98.83/up/alleth.bin  **29 GB**
+Download http://95.215.108.160/up/alleth.bin  **29 GB**
 
 **ALL BTC addresses 1...** P2PKH with balance + empty (history)<br>
 Add these arguments to run ```--bloom 2048M -t P2PKH```<br>
-Download http://89.23.98.83/up/allbtc1.bin  **11.9 GB**
+Download http://95.215.108.160/up/allbtc1.bin  **11.9 GB**
 
 **ALL BTC addresses 3...** P2SH with balance + empty (history)<br>
 Add these arguments to run ```--bloom 2048M -t P2SH```<br>
-Download http://89.23.98.83/up/allbtc3.bin  **7.6 GB**
+Download http://95.215.108.160/up/allbtc3.bin  **7.6 GB**
 
 **ALL BTC addresses bc1q...** bech32 with balance + empty (history)<br>
 Add these arguments to run ```--bloom 2048M -t bech32```<br>
-Download http://89.23.98.83/up/allbc.bin  **6.5 GB**
+Download http://95.215.108.160/up/allbc.bin  **6.5 GB**
 
 **List OTHESR Databases .bin**<br>
-see http://89.23.98.83/up/
+see http://95.215.108.160/up/
 
 ## Addresses only with positive balance
 
 Download ETH addresses 0x + tokens 02/07/2025<br>
 ```-t ethereum --bloom 2048M```<br>
-http://89.23.98.83/up/eth.bin  **6.9 GB**
+http://95.215.108.160/up/eth.bin  **6.9 GB**
 
 Download BTC addresses 1... 30/06/2025<br>
-http://89.23.98.83/up/btc1.txt  **787 MB**
+http://95.215.108.160/up/btc1.txt  **787 MB**
 
 Download BTC addresses 3... 30/06/2025<br>
-http://89.23.98.83/up/btc3.txt **240 MB**
+http://95.215.108.160/up/btc3.txt **240 MB**
 
 Download BTC addresses bc... 30/06/2025<br>
-http://89.23.98.83/up/bc.txt **842 MB**
+http://95.215.108.160/up/bc.txt **842 MB**
 
 Purchased ETH bases and tokens.<br>
 The base was provided by the hunter.<br>
 ```-t ethereum --bloom 2048M```<br>
-http://89.23.98.83/up/eth_parse.bin  **10.1 GB**
+http://95.215.108.160/up/eth_parse.bin  **10.1 GB**
 
 I recommend using large address bases.<br>
 For example, BCH may remain on the historical address 1... (P2PKH)
@@ -706,7 +706,7 @@ Base.bin 50 GB+ specify --bloom 8192M<hr>
 
 **Where can I make a mnemonic from a password?**
 
-Online generator http://89.23.98.83<br>
+Online generator http://95.215.108.160<br>
 Bookmark this<hr>
 
 **What is precomp.bin**?
