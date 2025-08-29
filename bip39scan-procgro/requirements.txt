@@ -1,0 +1,7 @@
+pybip39
+bip32
+coincurve
+base58
+eth-hash[pycryptodome]
+rbloom
+bech32
